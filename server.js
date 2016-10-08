@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 app.use(express.static(__dirname + ''));
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
+var userDAO = require('./server/dao/UserDAO.js');
 app.use(bodyParser.urlencoded({
         extended: true
 }));
@@ -23,7 +23,10 @@ app.post('/botCity', function(req, res) {
 
 	console.log(req);
 });
-
+app.post('/signup', function(req, res) {
+	console.log(req.body);
+	userDAO.signUp(req.body);
+});
 /*
 var hashTags = [];
 var contents = fs.readFileSync('tags.txt', 'utf8');

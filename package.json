@@ -22,7 +22,9 @@
     "exec": "^0.2.1",
     "express": "^4.14.0",
     "fs": "0.0.1-security",
+    "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.3",
+    "mongoose-findorcreate": "^0.1.2",
     "sys": "0.0.1",
     "util": "^0.10.3"
   }

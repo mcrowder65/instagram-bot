@@ -7,8 +7,10 @@ app.factory('simpleFactory', function(){
 });
 
 app.controller('app', function ($scope, simpleFactory) {
-    
-   
+  $scope.isLoggedIn = false;
+  $scope.isLoggedIn = function() {
+        $scope.loggedIn = localStorage.token != null && localStorage.token != "";
+    }
 });
 
 app.config(function ($routeProvider) {
@@ -18,6 +20,21 @@ app.config(function ($routeProvider) {
     {
         controller: 'app',
         templateUrl: 'client/html/bot.html'
+    })
+    .when('/profile',
+    {
+      controller: 'app',
+      templateUrl: 'client/html/profile.html'
+    })
+    .when('/signup',
+    {
+      controller: 'app',
+        templateUrl: 'client/html/signup.html'
+    })
+    .when('/login',
+    {
+      controller: 'app',
+        templateUrl: 'client/html/login.html'
     })
     .otherwise({ redirectTo: '/bot' });
 
