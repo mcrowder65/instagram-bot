@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="client/css/bot.css">
+<div data-ng-controller="bot">
+	
+      
+    <div ng-init="init()" class="center-block" id="bot">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading" id="center">
+            	Bot settings
+            </div>
+            <div class="panel-body">
+            	<input type="text" id="name" placeholder="Name - (Brittany or Lindsay)" ng-model="name"/>
+            	<input type="text" placeholder="Instagram username" ng-model="username"/>
+            	<input type="text" placeholder="Instagram password" ng-model="password"/>
+            	<br><br>
+            	<input type="text" placeholder="Tags (comma separated)" ng-model="tags"/>
+            	<input type="text" placeholder="Likes per day" ng-model="likesPerDay"/>
+            	<input type="text" placeholder="Max likes for one tag" ng-model="maxLikesForOneTag" />
+            	<br><br>
+            	<input type="text" placeholder="Follows per day" ng-model="followsPerDay"/>
+            	<input type="text" placeholder="Provided password" ng-model="providedPassword"/>
+            	<input type="text" ng-model="nameStyle"/>
+          	</div>
+        </div>
+        <div>
+            <button ng-click="validate()" class="btn btn-primary">Submit</button>
+
+
+        </div>
+    </div>
+</div>

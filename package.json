@@ -1,0 +1,29 @@
+{
+  "name": "instabot.py",
+  "version": "1.0.0",
+  "description": "InstaBot v 1.0.1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevPasha/instabot.py.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LevPasha/instabot.py/issues"
+  },
+  "homepage": "https://github.com/LevPasha/instabot.py#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "exec": "^0.2.1",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.6.3",
+    "sys": "0.0.1",
+    "util": "^0.10.3"
+  }
+}
