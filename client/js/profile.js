@@ -1,42 +1,74 @@
 var app= angular.module('app');
 const successColor = "lime";
 const failureColor = "red";
-const instagramUsername = "instagramUsername";
-const tags = "tags";
-const likesPerDay = "likesPerDay";
-const maxLikesForOneTag = "maxLikesForOneTag";
-const followsPerDay = "followsPerDay";
-const unfollowsPerDay = "unfollowsPerDay";
+const instagramUsernameId = "instagramUsername";
+const tagsId = "tags";
+const likesPerDayId = "likesPerDay";
+const maxLikesForOneTagId = "maxLikesForOneTag";
+const followsPerDayId = "followsPerDay";
+const unfollowsPerDayId = "unfollowsPerDay";
 const hoursInADay = 24;
 app.controller('profile', ['$scope', function ($scope) {
     $scope.init = function() {
         var user = getById();
-        console.log(user);
         $scope.instagramUsernameText = "Instagram username";
         $scope.instagramUsername = user.instagramUsername;
+        $scope.tagsText = "Tags (comma separated)";
         $scope.tags = user.tags;
         $scope.likesPerDay = user.likesPerDay / hoursInADay;
+        $scope.likesPerHourText = "Likes per hour";
         $scope.maxLikesForOneTag = user.maxLikesForOneTag;
+        $scope.maxLikesForOneTagText = "Max likes for one tag (put 0 for no limit)";
         $scope.followsPerDay = user.followsPerDay / hoursInADay;
+        $scope.followsPerHourText = "Follows per hour"
         $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
+        $scope.unfollowsPerHourText = "Unfollows per hour";
     }
     $scope.setInstagramUsername = function() {
-        // setInstagramUsername($scope.instagramUsername);
+        var user = getById();
+        user.instagramUsername = $scope.instagramUsername;
+        setById(user, instagramUsernameId);
     }
     $scope.setTags=function() {
-        outline(tags, successColor);
+        var user = getById();
+        user.tags = $scope.tags.trim();
+        setById(user, tagsId);
     }
     $scope.setLikesPerDay = function() {
-        outline(likesPerDay, successColor);
+        var user = getById();
+        if(!isValidNumber($scope.likesPerDay)) {
+            outline(likesPerDayId, failureColor);
+            return;
+        }
+        user.likesPerDay = $scope.likesPerDay * hoursInADay;
+        setById(user, likesPerDayId);
     }
     $scope.setMaxLikesForOneTag = function() {
-        outline(maxLikesForOneTag, successColor);
+        var user = getById();
+        if(!isValidNumber($scope.maxLikesForOneTag)) {
+            outline(maxLikesForOneTagId, failureColor);
+            return;
+        }
+        user.maxLikesForOneTag = $scope.maxLikesForOneTag;
+        setById(user, maxLikesForOneTagId);
     }
     $scope.setFollowsPerDay = function() {
-        outline(followsPerDay, successColor);
+        var user = getById();
+        if(!isValidNumber($scope.followsPerDay)) {
+            outline(followsPerDayId, failureColor);
+            return;
+        }
+        user.followsPerDay = $scope.followsPerDay * hoursInADay;
+        setById(user, followsPerDayId);
     }
     $scope.setUnfollowsPerDay = function() {
-        outline(unfollowsPerDay, successColor);
+        var user = getById();
+        if(!isValidNumber($scope.unfollowsPerDay)) {
+            outline(unfollowsPerDayId, failureColor);
+            return;
+        }
+        user.unfollowsPerDay = $scope.unfollowsPerDay * hoursInADay;
+        setById(user, unfollowsPerDayId);
     }
 }]);
 /*******************************************************************************************************************
@@ -54,35 +86,18 @@ function outline(id, color){
 /*******************************************************************************************************************/
                                                 //Server senders
 /*******************************************************************************************************************/
-function setInstagramUsername(username) {
+function setById(user, htmlID) {
     $.ajax
     ({
-        url: "/setInstagramUsername",
+        url: "/setById",
         dataType: 'json',
         type: 'POST',
-        data: username,
+        data: user,
         success: function(data, status, headers, config){
-            outline(instagramUsername, successColor);
+            outline(htmlID, successColor);
         }.bind(this),
         error: function(data, status, headers, config){
-            outline(instagramUsername, failureColor);
+            outline(htmlID, failureColor);
         }.bind(this)
     });
-}
-function setReceiverEmail(data){
-    if(data.receiverEmail) {
-        $.ajax
-        ({
-            url: "/setReceiverEmail",
-            dataType: 'json',
-            type: 'POST',
-            data: data,
-            success: function(data, status, headers, config){
-                outline("receiverEmailAccount", "lime");
-            }.bind(this),
-            error: function(data, status, headers, config){
-                outline("receiverEmailAccount", "red");
-            }.bind(this)
-        });
-    }
 }

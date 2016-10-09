@@ -3,7 +3,7 @@
 	<div ng-init="init()" class="center-block" id="block">
         <div class="panel panel-primary">
             <div class="panel panel-heading" id="center">
-            	Profile
+            	Settings
             </div>
             <div class="panel-body">
             	<span id="leftWrapper">
@@ -12,36 +12,33 @@
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
 	            </span>
 	            <span id="rightWrapper">
-	            	<div ng-show="tags !== ''">Tags (comma separated) </div>
-	            	<input type="text" id="tags" placeholder="Tags (comma separated)" ng-model="tags"/>
+	            	<div ng-show="tags !== ''">{{tagsText}} </div>
+	            	<input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
 	            </span>			
             	<br><br>
             	<span id="leftWrapper">
-            		<div ng-show="likesPerDay !== ''">Likes per hour </div>
-	            	<input type="text" id="likesPerDay" placeholder="Likes per hour" ng-model="likesPerDay"/>
+            		<div ng-show="likesPerDay !== null">{{likesPerHourText}}</div>
+	            	<input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setLikesPerDay()">Set</button>
 	            </span>
 	            <span id="rightWrapper">
-	            	<div ng-show="maxLikesForOneTag !== ''">Max likes for one tag</div>
-	            	<input type="text" id="maxLikesForOneTag" placeholder="Max likes for one tag" ng-model="maxLikesForOneTag" />
+	            	<div ng-show="maxLikesForOneTag !== null">{{maxLikesForOneTagText}}</div>
+	            	<input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setMaxLikesForOneTag()">Set</button>
 	            </span>
             	<br><br>
             	<span id="leftWrapper">
-            		<div ng-show="followsPerDay !== ''">Follows per hour</div>
-	            	<input type="text" id="followsPerDay" placeholder="Follows per hour" ng-model="followsPerDay"/>
+            		<div ng-show="followsPerDay !== null">{{followsPerHourText}}</div>
+	            	<input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setFollowsPerDay()">Set</button>
 	            </span>
 	            <span id="rightWrapper">
-	            	<div ng-show="unfollowsPerDay !== ''">Unfollows per day</div>
-	            	<input type="text" id="unfollowsPerDay" placeholder="Unfollows per hour" ng-model="unfollowsPerDay"/>
+	            	<div ng-show="unfollowsPerDay !== null">{{unfollowsPerHourText}}</div>
+	            	<input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setUnfollowsPerDay()">Set</button>
             	</span>
           	</div>
-        </div>
-        <div>
-            <button ng-click="validate()" class="btn btn-primary">Submit</button>
         </div>
     </div>
 </div>

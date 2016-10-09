@@ -33,7 +33,9 @@ app.post('/login', function(req, res) {
 app.post('/getById', function(req, res) {
 	userDAO.getById(req.body.id, res);
 });
-
+app.post('/setById', function(req, res) {
+	userDAO.setById(req.body, res);
+});
 /*
 var hashTags = [];
 var contents = fs.readFileSync('tags.txt', 'utf8');

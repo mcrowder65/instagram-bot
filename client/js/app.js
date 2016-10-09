@@ -89,28 +89,16 @@ function getById() {
       data: {id: localStorage.token},
       success: function(data, status, headers, config){
           user = data.data;
-          console.log(data); 
       }.bind(this),
       error: function(data, status, headers, config){
       }.bind(this)
   });
+  user.id = localStorage.token;
   return user;
 }
 
-function deleteReminder(_id) {
-    var success = false;
-    $.ajax
-    ({
-        url: "/deleteReminder",
-        dataType: "json",
-        type: "POST",
-        async: false,
-        data: {_id: _id},
-        success: function(data, status, headers, config){
-            success = true;
-        }.bind(this),
-        error: function(data, status, headers, config){
-        }.bind(this)
-    });
-    return success;
+
+function isValidNumber(num) {
+  return  num === undefined || num === null || 
+          !Number.isInteger(num) || num < 0 ? false : true;
 }

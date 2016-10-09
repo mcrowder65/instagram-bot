@@ -57,6 +57,24 @@ module.exports = {
 	            res.sendStatus(403);
 	        }
 		});
+	},
+	setById: function(data, res) {
+		var temp = data;
+		user.update({_id: temp.id}, {
+			followsPerDay: temp.followsPerDay,
+    		instagramUsername: temp.instagramUsername,
+    		maxLikesForOneTag: temp.maxLikesForOneTag,
+    		unfollowsPerDay: temp.unfollowsPerDay,
+    		tags: temp.tags,
+    		likesPerDay: temp.likesPerDay
+		},
+		function(err, tempUser){
+			if(tempUser) {
+				res.json(tempUser);
+			} else {
+				res.sendStatus("403");
+			}
+		}); 
 	}
 	
 }
