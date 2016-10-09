@@ -1,49 +1,30 @@
-
 var app = angular.module('app');
-var validName1 = 'Brittany';
-var validName2 = 'Lindsay';
-app.controller('bot', ['$scope', function($scope) {
-	$scope.init = function() {
-		// $scope.instagramUsername = getInstagramUsername();
-	}
-	$scope.validate = function() {
-		// if(!validateName($scope.name)) {
-		// 	alert('Your name was not ' + validName1 + ' or ' + validName2 + '\n'
-		// 		+ 'Your name is: ' + $scope.name);
-		// 	return;
-		// }
-		// if(!validateTags($scope.tags)) {
 
-		// 	alert("Tags are invalid...make sure there's an entry");
-		// 	return;
-		// }
-		// console.log($scope.likesPerDay);
-		// try {
-		// 	validateNumber($scope.likesPerDay, "Likes per day");
-		// } catch(error) {
-		// 	alert(error);
-		// }
-		// console.log($scope.likesPerDay);
-		// console.log($scope.maxLikesForOneTag);
-		// console.log($scope.followsPerDay);
-		// console.log($scope.providedPassword);
+const instagramPasswordId = "instagramPassword";
+const startBotButtonText = "Start bot";
+const instagramPasswordText = "Instagram password (no #'s)";
+const panelHeadingText = "Make a new bot";
+app.controller('bot', ['$scope', function($scope) {
+	$scope.initBot = function() {
+		$scope.instagramPasswordText = instagramPasswordText;
+		$scope.startBotButtonText = startBotButtonText;
+		$scope.panelHeadingText = panelHeadingText;
+	}
+	$scope.startBot = function() {
+		if(isEmpty($scope.instagramPassword) || $scope.instagramPassword.indexOf('#') != -1) {
+			outline(instagramPasswordId, failureColor);
+			return;
+		}
+		var bot = {
+			instagramUsername: $scope.instagramUsername,
+			tags: $scope.tags,
+			likesPerDay: $scope.likesPerDay * hoursInADay,
+			maxLikesForOneTag: $scope.maxLikesForOneTag,
+			followsPerHour: $scope.followsPerDay * hoursInADay,
+			unfollowsPerHour: $scope.unfollowsPerDay * hoursInADay,
+			instagramPassword: $scope.instagramPassword
+		};
+
+		console.log(bot);
 	}
 }]);
-
-function validateNumber(number, message) {
-	if(!Number.isInteger(number)) {
-		throw(message + " isn't a number.");
-	}
-	if(number < 0) {
-		throw(message + " is negative");
-	}
-}
-function validateName(name) {
-	return name === 'Brittany' || name === 'Lindsay' ? true : false;
-}
-
-function validateTags(tags) {
-	if(tags === undefined || tags === null || tags === '') {
-		return false;
-	}
-}

@@ -1,29 +1,72 @@
 <link rel="stylesheet" type="text/css" href="client/css/bot.css">
 <div data-ng-controller="bot">
-	
-      
-    <div ng-init="init()" class="center-block" id="bot">
+    <div ng-init="init(); initBot()" class="center-block" id="block">
         <div class="panel panel-primary">
             <div class="panel panel-heading" id="center">
-            	Bot settings
+                <div ng-bind="panelHeadingText"></div>
             </div>
             <div class="panel-body">
-            	<input type="text" placeholder="Instagram username" ng-model="instagramUsername"/>
-            	<input type="text" placeholder="Instagram password" ng-model="instagramPassword"/>
-            	<br><br>
-            	<input type="text" placeholder="Tags (comma separated)" ng-model="tags"/>
-            	<input type="text" placeholder="Likes per day" ng-model="likesPerDay"/>
-            	<input type="text" placeholder="Max likes for one tag" ng-model="maxLikesForOneTag" />
-            	<br><br>
-            	<input type="text" placeholder="Follows per day" ng-model="followsPerDay"/>
-            	<input type="text" placeholder="Provided password" ng-model="providedPassword"/>
-            	<input type="text" ng-model="nameStyle"/>
-          	</div>
+                <span id="leftWrapper">
+                    <div ng-show="instagramUsername !== ''"> 
+                        <div ng-bind="instagramUsernameText"></div>
+                    </div>
+                    <input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
+                </span>
+                <span id="rightWrapper">
+                    <div ng-show="tags !== ''">
+                        <div ng-bind="tagsText"></div>
+                    </div>
+                    <input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+                </span>         
+                <br><br>
+                <span id="leftWrapper">
+                    <div ng-show="likesPerDay !== null">
+                        <div ng-bind="likesPerHourText"></div>
+                    </div>
+                    <input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
+                </span>
+                <span id="rightWrapper">
+                    <div ng-show="maxLikesForOneTag !== null">
+                        <div ng-bind="maxLikesForOneTagText"></div>
+                    </div>
+                    <input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
+                </span>
+                <br><br>
+                <span id="leftWrapper">
+                    <div ng-show="followsPerDay !== null">
+                        <div ng-bind="followsPerHourText"></div>
+                    </div>
+                    <input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
+                </span>
+                <span id="rightWrapper">
+                    <div ng-show="unfollowsPerDay !== null">
+                        <div ng-bind="unfollowsPerHourText"></div>
+                    </div>
+                    <input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
+                </span>
+                <br><br>
+                <span id="leftWrapper">
+                    <div ng-show="instagramPassword !== '' && instagramPassword !== undefined"> 
+                        <div ng-bind="instagramPasswordText"></div>
+                    </div>
+                    <input type="text" id="instagramPassword" placeholder="{{instagramPasswordText}}" ng-model="instagramPassword"/>
+                </span>
+            </div>
         </div>
         <div>
-            <button ng-click="validate()" class="btn btn-primary">Submit</button>
-
-
+            <button type="button" class="btn btn-primary" ng-click="startBot()"> 
+                <div ng-bind="startBotButtonText"></div>
+            </button>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
