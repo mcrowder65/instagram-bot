@@ -8,6 +8,22 @@ const maxLikesForOneTagId = "maxLikesForOneTag";
 const followsPerDayId = "followsPerDay";
 const unfollowsPerDayId = "unfollowsPerDay";
 const tagsConfirmationText = "Tags";
+const instagramPasswordId = "instagramPassword";
+const startBotButtonText = "Start bot";
+const instagramPasswordText = "Instagram password (no #'s)";
+const instagramPasswordConfirmationText = "Instagram password";
+const panelHeadingText = "Make a new bot";
+const confirmBotMessage = "Please confirm these are the correct settings.";
+const confirmMessage = "Confirmation";
+const officialBotStartText = "Start!";
+const goBackToEditText = "Incorrect, go back!";
+const maxLikesForOneTagConfirmationText = "Max likes for one tag";
+const perDayText = ' per day';
+const arrow = '-> ';
+const currentBotText = "Current bot";
+const stopThisBotText = "Stop this bot";
+
+
 var app = angular.module('app', ['ngRoute']);
 app.factory('simpleFactory', function(){
     var factory = {};
@@ -134,7 +150,26 @@ function getById() {
   return user;
 }
 
-
+function isABotRunning() {
+  var user = getById();
+  var pid = user.pid;
+  var userHasPid = pid === -1 ? false : true;
+  var botRunning = false;
+  $.ajax
+  ({
+      url: "/isPidAlive",
+      dataType: 'json',
+      type: 'POST',
+      async: false,
+      data: {pid: pid},
+      success: function(data, status, headers, config) {
+        botRunning = data.botRunning;
+      }.bind(this),
+      error: function(data, status, headers, config) {
+      }.bind(this)
+  });
+  return botRunning;
+}
 function isValidNumber(num) {
   return  num === undefined || num === null || 
           !Number.isInteger(num) || num < 0 ? false : true;

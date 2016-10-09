@@ -1,17 +1,6 @@
 var app = angular.module('app');
 
-const instagramPasswordId = "instagramPassword";
-const startBotButtonText = "Start bot";
-const instagramPasswordText = "Instagram password (no #'s)";
-const instagramPasswordConfirmationText = "Instagram password";
-const panelHeadingText = "Make a new bot";
-const confirmBotMessage = "Please confirm these are the correct settings.";
-const confirmMessage = "Confirmation";
-const officialBotStartText = "Start!";
-const goBackToEditText = "Incorrect, go back!";
-const maxLikesForOneTagConfirmationText = "Max likes for one tag";
-const perDayText = ' per day';
-const arrow = '-> ';
+
 app.controller('bot', ['$scope', function($scope) {
 	$scope.initBotView = function() {
 		$scope.instagramPasswordText = instagramPasswordText;
@@ -24,6 +13,9 @@ app.controller('bot', ['$scope', function($scope) {
 		$scope.instagramPasswordConfirmationText = instagramPasswordConfirmationText;
 		$scope.maxLikesForOneTagConfirmationText = maxLikesForOneTagConfirmationText;
 		$scope.showConfirmation = false;
+		$scope.currentBotText = currentBotText;
+		$scope.botRunning = isABotRunning();
+		$scope.stopThisBotText = stopThisBotText;
 	}
 	$scope.multiplyValueByHours = function(value) {
 		var temp = value * hoursInADay;
@@ -52,10 +44,34 @@ app.controller('bot', ['$scope', function($scope) {
 			id: localStorage.token
 		};
 		sendBotToServer(bot);
-
+		$scope.botRunning = isABotRunning();
+	}
+	$scope.isABotRunning = function() {
+		return isABotRunning();
+	}
+	$scope.stopThisBot = function() {
+		var user = getById();
+		$scope.botRunning = stopBot(user.pid);
+		$scope.showConfirmation = false;
 	}
 }]);
-
+function stopBot(pid) {
+	var botRunning = true;
+	$.ajax
+	({
+		url: "/stopBot",
+		dataType: 'json',
+		type: 'POST',
+		async: false,
+		data: {pid: pid},
+		success: function(data, status, headers, config){
+		  botRunning = data.botRunning;
+		}.bind(this),
+		error: function(data, status, headers, config){
+		}.bind(this)
+	});
+	return botRunning;
+}
 function sendBotToServer(bot) {
 	$.ajax
 	({

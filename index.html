@@ -23,15 +23,14 @@
 
 		<script src="client/js/app.js"></script>
 		<script src="client/js/bot.js"></script>
-		<script src="client/js/runningbots.js"></script>
 		<script src="client/js/login.js"></script>
 		<script src="client/js/profile.js"></script>
 		<header>
 
 			<nav class="navbar navbar-default" id="navbar" data-ng-init="isLoggedIn()">
-				<a class="navbar-brand" href="/#/bot">Home</a>
+				<a class="navbar-brand" href="/#/bot">Bot</a>
 				<ul class="nav navbar-nav">
-					<li data-ng-show="loggedIn == true"><a href="/#/profile">Profile</a></li>
+					<li data-ng-show="loggedIn == true"><a href="/#/profile">Profile settings</a></li>
 				 	<li data-ng-show="loggedIn == true"><a href="/#/" onclick="logout()">Log out</a></li>
 				 	<li data-ng-show="loggedIn == false"><a href="/#/signup">Sign up</a></li>
 				 	<li data-ng-show="loggedIn == false"><a href="/#/login">Log in</a></li>

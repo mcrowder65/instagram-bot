@@ -50,7 +50,8 @@ module.exports = {
 	        		maxLikesForOneTag: tempUser.maxLikesForOneTag,
 	        		unfollowsPerDay: tempUser.unfollowsPerDay,
 	        		tags: tempUser.tags,
-	        		likesPerDay: tempUser.likesPerDay
+	        		likesPerDay: tempUser.likesPerDay,
+	        		pid: tempUser.pid
 	        	}
 	            res.json({data});
 	       	} 

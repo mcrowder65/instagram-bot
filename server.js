@@ -20,8 +20,6 @@ var server = app.listen(portNumber, function() {
 	var port = server.address().port;
 });
 function puts(error, stdout, stderr) { 
-	console.log(stdout) 
-	// return stdout;
 }
 
 app.post('/startBot', function(req, res) {
@@ -57,6 +55,32 @@ app.post('/startBot', function(req, res) {
 
 	});
 
+});
+app.post('/stopBot', function(req, res) {
+	var pid = req.body.pid;
+	ps.kill( pid, function(err) {
+		res.json({botRunning: false});
+	});
+});
+app.post('/isPidAlive', function(req, res) {
+	var pid = req.body.pid;
+	if(pid === -1) {
+		res.json({botRunning: false});
+	} else {
+		ps.lookup({ pid: pid }, function(err, resultList ) {
+		    if (err) {
+		        throw new Error(err);
+		    }
+		    var process = resultList[0];	 
+		    if(process) {
+		 		res.json({botRunning: true});
+		    }
+		    else {
+		    	res.json({botRunning:false});
+		    }
+		});
+	}
+	
 });
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);
