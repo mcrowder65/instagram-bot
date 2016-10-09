@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/LevPasha/instabot.py#readme",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "exec": "^0.2.1",
     "express": "^4.14.0",
