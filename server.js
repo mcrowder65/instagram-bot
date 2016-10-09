@@ -18,7 +18,10 @@ var server = app.listen(portNumber, function() {
 	var host = server.address().address;
 	var port = server.address().port;
 });
-
+function puts(error, stdout, stderr) { 
+	console.log(stdout) 
+	// return stdout;
+}
 
 app.post('/startBot', function(req, res) {
 	var bot = req.body.bot;
@@ -29,13 +32,13 @@ app.post('/startBot', function(req, res) {
 	var followsPerDay = bot.followsPerDay;
 	var unfollowsPerDay = bot.unfollowsPerDay;
 	var instagramPassword = bot.instagramPassword;
-
+	var pidFile = " " + instagramUsername + "pid.txt";
 	var exec = require('child_process').exec;
 
 	var command = "python example.py " + instagramUsername + " " + instagramPassword + " " 
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
-				  + " " + unfollowsPerDay;
-	function puts(error, stdout, stderr) { console.log(stdout) }
+				  + " " + unfollowsPerDay + " & echo $! >>" + pidFile;
+
 	exec(command, puts);
 	res.json({});
 });
