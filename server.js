@@ -20,9 +20,24 @@ var server = app.listen(portNumber, function() {
 });
 
 
-app.post('/botCity', function(req, res) {
+app.post('/startBot', function(req, res) {
+	var bot = req.body.bot;
+	var instagramUsername = bot.instagramUsername;
+	var hashTags = bot.tags;
+	var likesPerDay = bot.likesPerDay;
+	var maxLikesForOneTag = bot.maxLikesForOneTag;
+	var followsPerDay = bot.followsPerDay;
+	var unfollowsPerDay = bot.unfollowsPerDay;
+	var instagramPassword = bot.instagramPassword;
 
-	console.log(req);
+	var exec = require('child_process').exec;
+
+	var command = "python example.py " + instagramUsername + " " + instagramPassword + " " 
+				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
+				  + " " + unfollowsPerDay;
+	function puts(error, stdout, stderr) { console.log(stdout) }
+	exec(command, puts);
+	res.json({});
 });
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);
@@ -36,18 +51,3 @@ app.post('/getById', function(req, res) {
 app.post('/setById', function(req, res) {
 	userDAO.setById(req.body, res);
 });
-/*
-var hashTags = [];
-var contents = fs.readFileSync('tags.txt', 'utf8');
-hashTags = contents.split(',');
-// console.log(arr);
-contents = fs.readFileSync('matthewlogin.txt', 'utf8');
-var userCredentials = contents.split(',');
-var username = userCredentials[0];
-var password = userCredentials[1];
-// or more concisely
-var exec = require('child_process').exec;
-var command = "python example.py " + username + " " + password + " " + hashTags
-function puts(error, stdout, stderr) { console.log(stdout) }
-exec(command, puts);
-*/

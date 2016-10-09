@@ -1,62 +1,102 @@
 <link rel="stylesheet" type="text/css" href="client/css/bot.css">
-<div data-ng-controller="bot">
-    <div ng-init="init(); initBot()" class="center-block" id="block">
-        <div class="panel panel-primary">
-            <div class="panel panel-heading" id="center">
-                <div ng-bind="panelHeadingText"></div>
+<link rel="stylesheet" type="text/css" href="client/css/app.css">
+<div data-ng-controller="bot" ng-init="init(); initBotView()">
+    <div ng-show="!showConfirmation">
+        <div class="center-block" id="block">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading" id="center">
+                    <div ng-bind="panelHeadingText"></div>
+                </div>
+                <div class="panel-body">
+                    <span id="leftWrapper">
+                        <div ng-show="instagramUsername !== ''"> 
+                            <div ng-bind="instagramUsernameText"></div>
+                        </div>
+                        <input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
+                    </span>
+                    <span id="rightWrapper">
+                        <div ng-show="tags !== ''">
+                            <div ng-bind="tagsText"></div>
+                        </div>
+                        <input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+                    </span>         
+                    <br><br>
+                    <span id="leftWrapper">
+                        <div ng-show="likesPerDay !== null">
+                            <div ng-bind="likesPerHourText"></div>
+                        </div>
+                        <input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
+                    </span>
+                    <span id="rightWrapper">
+                        <div ng-show="maxLikesForOneTag !== null">
+                            <div ng-bind="maxLikesForOneTagText"></div>
+                        </div>
+                        <input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
+                    </span>
+                    <br><br>
+                    <span id="leftWrapper">
+                        <div ng-show="followsPerDay !== null">
+                            <div ng-bind="followsPerHourText"></div>
+                        </div>
+                        <input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
+                    </span>
+                    <span id="rightWrapper">
+                        <div ng-show="unfollowsPerDay !== null">
+                            <div ng-bind="unfollowsPerHourText"></div>
+                        </div>
+                        <input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
+                    </span>
+                    <br><br>
+                    <span id="leftWrapper">
+                        <div ng-show="instagramPassword !== '' && instagramPassword !== undefined"> 
+                            <div ng-bind="instagramPasswordText"></div>
+                        </div>
+                        <input type="text" id="instagramPassword" placeholder="{{instagramPasswordText}}" ng-model="instagramPassword"/>
+                    </span>
+                </div>
             </div>
-            <div class="panel-body">
-                <span id="leftWrapper">
-                    <div ng-show="instagramUsername !== ''"> 
-                        <div ng-bind="instagramUsernameText"></div>
-                    </div>
-                    <input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
-                </span>
-                <span id="rightWrapper">
-                    <div ng-show="tags !== ''">
-                        <div ng-bind="tagsText"></div>
-                    </div>
-                    <input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
-                </span>         
-                <br><br>
-                <span id="leftWrapper">
-                    <div ng-show="likesPerDay !== null">
-                        <div ng-bind="likesPerHourText"></div>
-                    </div>
-                    <input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
-                </span>
-                <span id="rightWrapper">
-                    <div ng-show="maxLikesForOneTag !== null">
-                        <div ng-bind="maxLikesForOneTagText"></div>
-                    </div>
-                    <input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
-                </span>
-                <br><br>
-                <span id="leftWrapper">
-                    <div ng-show="followsPerDay !== null">
-                        <div ng-bind="followsPerHourText"></div>
-                    </div>
-                    <input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
-                </span>
-                <span id="rightWrapper">
-                    <div ng-show="unfollowsPerDay !== null">
-                        <div ng-bind="unfollowsPerHourText"></div>
-                    </div>
-                    <input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
-                </span>
-                <br><br>
-                <span id="leftWrapper">
-                    <div ng-show="instagramPassword !== '' && instagramPassword !== undefined"> 
-                        <div ng-bind="instagramPasswordText"></div>
-                    </div>
-                    <input type="text" id="instagramPassword" placeholder="{{instagramPasswordText}}" ng-model="instagramPassword"/>
-                </span>
+            <div ng-show="!showConfirmation">
+                <button type="button" class="btn btn-primary" ng-click="startBot()"> 
+                    <div ng-bind="startBotButtonText"></div>
+                </button>
             </div>
         </div>
-        <div>
-            <button type="button" class="btn btn-primary" ng-click="startBot()"> 
-                <div ng-bind="startBotButtonText"></div>
-            </button>
+    </div>
+    <div ng-show="showConfirmation">
+        <div class="alert alert-danger" id="confirmationMessage" role="alert">
+            <div ng-bind="confirmBotMessage"></div>
+        </div>
+        <div class="alert alert-info" id="confirmationMessage" role="alert">
+            Things to note: if you input<br> <b>laneyandjuliet,crowderfam2016</b><br> as your tag input, it should display in the confirmation as <br><b>["laneyandjuliet","crowderfam2016"]</b>
+        </div>
+        <div class="center-block" id="block">
+            
+            <div class="panel panel-primary">
+                <div class="panel panel-heading" id="center">
+                    <div ng-bind="confirmMessage"></div>
+                </div>
+                <div class="panel-body">
+                    <b>{{instagramUsernameText}}:</b> {{instagramUsername}} <br>
+                    <b>{{instagramPasswordConfirmationText}}:</b> {{instagramPassword}}<br>
+                    <b>{{tagsConfirmationText}}:</b> {{tags}}<br>
+                    <b>{{likesPerHourText}}:</b> {{likesPerDay}}
+                    <span ng-bind="multiplyValueByHours(likesPerDay)"></span><br>
+                    <b>{{maxLikesForOneTagConfirmationText}}:</b> {{maxLikesForOneTag}}<br>
+                    <b>{{followsPerHourText}}:</b> {{followsPerDay}}
+                    <span ng-bind="multiplyValueByHours(followsPerDay)"></span><br>
+                    <b>{{unfollowsPerHourText}}:</b> {{unfollowsPerDay}}
+                    <span ng-bind="multiplyValueByHours(unfollowsPerDay)"></span><br>
+
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" ng-click="sendBotToServer()"> 
+                    <div ng-bind="officialBotStartText"></div>
+                </button>
+                <button type="button" class="btn btn-danger" ng-click="showConfirmation = false"> 
+                    <div ng-bind="goBackToEditText"></div>
+                </button>
+            </div>
         </div>
     </div>
 </div>

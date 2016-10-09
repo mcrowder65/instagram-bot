@@ -9,20 +9,12 @@ input{
 	width:250px;
 }
 
-#block {
-	width: 42%;
-}
-
-
-#leftWrapper {
-  margin: 0px; /* remove all margins to fit two divs in the container */
-  display: inline-block; /* display block elements in one line */
-}
-#rightWrapper {
-  margin: 0px; /* remove all margins to fit two divs in the container */
-  display: inline-block; /* display block elements in one line */
-}
-
 #master {
 	width:100%;
+}
+
+#confirmationMessage{
+	text-align: center;
+	width: 30%;
+  	margin-left: 35%;
 }

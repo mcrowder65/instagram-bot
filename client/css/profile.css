@@ -1,21 +1,3 @@
 input{
 	width:215px;
 }
-
-#block {
-	width: 42%;
-}
-
-
-#leftWrapper {
-  margin: 0px; /* remove all margins to fit two divs in the container */
-  display: inline-block; /* display block elements in one line */
-}
-#rightWrapper {
-  margin: 0px; /* remove all margins to fit two divs in the container */
-  display: inline-block; /* display block elements in one line */
-}
-
-#master {
-	width:100%;
-}

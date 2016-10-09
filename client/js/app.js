@@ -7,6 +7,7 @@ const likesPerDayId = "likesPerDay";
 const maxLikesForOneTagId = "maxLikesForOneTag";
 const followsPerDayId = "followsPerDay";
 const unfollowsPerDayId = "unfollowsPerDay";
+const tagsConfirmationText = "Tags";
 var app = angular.module('app', ['ngRoute']);
 app.factory('simpleFactory', function(){
     var factory = {};
@@ -25,6 +26,7 @@ app.controller('app', function ($scope, simpleFactory) {
         $scope.instagramUsername = user.instagramUsername;
         $scope.tagsText = "Tags (comma separated)";
         $scope.tags = user.tags;
+        $scope.tagsConfirmationText = tagsConfirmationText;
         $scope.likesPerDay = user.likesPerDay / hoursInADay;
         $scope.likesPerHourText = "Likes per hour";
         $scope.maxLikesForOneTag = user.maxLikesForOneTag;
@@ -65,6 +67,9 @@ app.config(function ($routeProvider) {
 /*******************************************************************************************************************/
                                                 //BASIC FUNCTIONS
 /*******************************************************************************************************************/
+function isString(str) {
+  return typeof str === 'string';
+}
 function outline(id, color){
     id = "#" + id;
     $(id).css("borderColor", color);
