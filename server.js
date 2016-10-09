@@ -2,6 +2,7 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var db = mongoose.connect('mongodb://localhost/bot');
 app.use(express.static(__dirname + ''));
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -25,7 +26,7 @@ app.post('/botCity', function(req, res) {
 });
 app.post('/signup', function(req, res) {
 	console.log(req.body);
-	userDAO.signUp(req.body);
+	userDAO.signUp(req.body, res);
 });
 /*
 var hashTags = [];

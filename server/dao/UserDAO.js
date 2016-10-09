@@ -1,6 +1,6 @@
 var user = require('./../models/user');
 module.exports = {
-	signUp: function(data) {
+	signUp: function(data, res) {
 		user.findOrCreate({
 			username: data.username,
 			password: user.hashPassword(data.password),
