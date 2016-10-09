@@ -7,8 +7,8 @@
             </div>
             <div class="panel-body">
             	<span id="leftWrapper">
-	            	<div ng-show="instagramUsername !== ''"> Instagram username</div>
-	            	<input type="text" id="instagramUsername" placeholder="Instagram username" ng-model="instagramUsername"/>
+	            	<div ng-show="instagramUsername !== ''"> {{instagramUsernameText}}</div>
+	            	<input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
 	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
 	            </span>
 	            <span id="rightWrapper">

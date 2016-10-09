@@ -4,7 +4,7 @@ var validName1 = 'Brittany';
 var validName2 = 'Lindsay';
 app.controller('bot', ['$scope', function($scope) {
 	$scope.init = function() {
-		$scope.instagramUsername = getInstagramUsername();
+		// $scope.instagramUsername = getInstagramUsername();
 	}
 	$scope.validate = function() {
 		// if(!validateName($scope.name)) {

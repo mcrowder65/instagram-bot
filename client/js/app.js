@@ -79,7 +79,7 @@ function removeGet(parameter, dateToSend) {
                                                 //Server senders
 /*******************************************************************************************************************/
 function getById() {
-  var instagramUsername = '';
+  var user;
   $.ajax
   ({
       url: "/getById",
@@ -88,7 +88,8 @@ function getById() {
       async: false,
       data: {id: localStorage.token},
       success: function(data, status, headers, config){
-          user = data.sendBackObject;
+          user = data.data;
+          console.log(data); 
       }.bind(this),
       error: function(data, status, headers, config){
       }.bind(this)

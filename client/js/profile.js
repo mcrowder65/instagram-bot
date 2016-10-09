@@ -11,6 +11,8 @@ const hoursInADay = 24;
 app.controller('profile', ['$scope', function ($scope) {
     $scope.init = function() {
         var user = getById();
+        console.log(user);
+        $scope.instagramUsernameText = "Instagram username";
         $scope.instagramUsername = user.instagramUsername;
         $scope.tags = user.tags;
         $scope.likesPerDay = user.likesPerDay / hoursInADay;
@@ -19,7 +21,7 @@ app.controller('profile', ['$scope', function ($scope) {
         $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
     }
     $scope.setInstagramUsername = function() {
-        setInstagramUsername($scope.instagramUsername);
+        // setInstagramUsername($scope.instagramUsername);
     }
     $scope.setTags=function() {
         outline(tags, successColor);
