@@ -9,8 +9,8 @@ app.factory('simpleFactory', function(){
 app.controller('app', function ($scope, simpleFactory) {
   $scope.isLoggedIn = false;
   $scope.isLoggedIn = function() {
-        $scope.loggedIn = localStorage.token != null && localStorage.token != "";
-    }
+    $scope.loggedIn = localStorage.token != null && localStorage.token != "";
+  }
 });
 
 app.config(function ($routeProvider) {
@@ -78,6 +78,24 @@ function removeGet(parameter, dateToSend) {
 /*******************************************************************************************************************/
                                                 //Server senders
 /*******************************************************************************************************************/
+function getById() {
+  var instagramUsername = '';
+  $.ajax
+  ({
+      url: "/getById",
+      dataType: 'json',
+      type: 'POST',
+      async: false,
+      data: {id: localStorage.token},
+      success: function(data, status, headers, config){
+          user = data.sendBackObject;
+      }.bind(this),
+      error: function(data, status, headers, config){
+      }.bind(this)
+  });
+  return user;
+}
+
 function deleteReminder(_id) {
     var success = false;
     $.ajax

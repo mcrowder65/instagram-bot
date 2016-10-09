@@ -1,13 +1,49 @@
 <link rel="stylesheet" type="text/css" href="client/css/profile.css">
 <div data-ng-controller="profile">
-	<div data-ng-init="getReceiverEmail(); getSenderEmail(); getSenderPassword(); " style="text-align:center">
-	    <input type="text" id="receiverEmailAccount" data-ng-value="receiverEmail" data-ng-model="receiverEmail" placeholder="Receiving email account"/>
-		<button type="button" class="btn btn-primary btn-xs" data-ng-click="setReceiverEmail()">Set</button><br><br>
-		<input type="text" id="senderEmailAccount" data-ng-value="senderEmail" data-ng-model="senderEmail" placeholder="Sender email account"/>
-		<button type="button" class="btn btn-primary btn-xs" data-ng-click="setSenderEmail()">Set</button><br><br>
-        <input type="text" id="senderEmailPassword" data-ng-value="senderPassword" data-ng-model="senderPassword" placeholder="Sender email password"/>
-		<button type="button" class="btn btn-primary btn-xs" data-ng-click="setSenderPassword()">Set</button><br><br>
-	</div>
+	<div ng-init="init()" class="center-block" id="block">
+        <div class="panel panel-primary">
+            <div class="panel panel-heading" id="center">
+            	Profile
+            </div>
+            <div class="panel-body">
+            	<span id="leftWrapper">
+	            	<div ng-show="instagramUsername !== ''"> Instagram username</div>
+	            	<input type="text" id="instagramUsername" placeholder="Instagram username" ng-model="instagramUsername"/>
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
+	            </span>
+	            <span id="rightWrapper">
+	            	<div ng-show="tags !== ''">Tags (comma separated) </div>
+	            	<input type="text" id="tags" placeholder="Tags (comma separated)" ng-model="tags"/>
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
+	            </span>			
+            	<br><br>
+            	<span id="leftWrapper">
+            		<div ng-show="likesPerDay !== ''">Likes per hour </div>
+	            	<input type="text" id="likesPerDay" placeholder="Likes per hour" ng-model="likesPerDay"/>
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setLikesPerDay()">Set</button>
+	            </span>
+	            <span id="rightWrapper">
+	            	<div ng-show="maxLikesForOneTag !== ''">Max likes for one tag</div>
+	            	<input type="text" id="maxLikesForOneTag" placeholder="Max likes for one tag" ng-model="maxLikesForOneTag" />
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setMaxLikesForOneTag()">Set</button>
+	            </span>
+            	<br><br>
+            	<span id="leftWrapper">
+            		<div ng-show="followsPerDay !== ''">Follows per hour</div>
+	            	<input type="text" id="followsPerDay" placeholder="Follows per hour" ng-model="followsPerDay"/>
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setFollowsPerDay()">Set</button>
+	            </span>
+	            <span id="rightWrapper">
+	            	<div ng-show="unfollowsPerDay !== ''">Unfollows per day</div>
+	            	<input type="text" id="unfollowsPerDay" placeholder="Unfollows per hour" ng-model="unfollowsPerDay"/>
+	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setUnfollowsPerDay()">Set</button>
+            	</span>
+          	</div>
+        </div>
+        <div>
+            <button ng-click="validate()" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
 </div>
 
 

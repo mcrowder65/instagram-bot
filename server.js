@@ -25,9 +25,15 @@ app.post('/botCity', function(req, res) {
 	console.log(req);
 });
 app.post('/signup', function(req, res) {
-	console.log(req.body);
 	userDAO.signUp(req.body, res);
 });
+app.post('/login', function(req, res) {
+	userDAO.login(req.body, res);
+});
+app.post('/getById', function(req, res) {
+	userDAO.getById(req.body.id, res);
+});
+
 /*
 var hashTags = [];
 var contents = fs.readFileSync('tags.txt', 'utf8');

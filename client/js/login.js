@@ -2,7 +2,7 @@ var app= angular.module('app');
 app.controller('login', ['$scope', function ($scope) {
 
     $scope.login = function() {
-        login($scope.username, $scope.password);
+        $scope.isLoggedIn = login($scope.username, $scope.password);
     }
     
 }]);
@@ -12,6 +12,7 @@ app.controller('login', ['$scope', function ($scope) {
 /*******************************************************************************************************************/
 
 function login(username, password) {
+    var success= false;
     username = username.toLowerCase();
     $.ajax
     ({
@@ -19,12 +20,35 @@ function login(username, password) {
         dataType: 'json',
         type: 'POST',
         data: {username: username, password: password},
+        async: false,
         success: function(data, status, headers, config){
             localStorage.token = data.token;
             window.location="/index.html";
+            success = true;
         }.bind(this),
         error: function(data, status, headers, config){
             localStorage.token="";
+        }.bind(this)
+    });
+}
+
+
+function signup(username, password) {
+    var obj = {
+        username: username,
+        password: password
+    };
+    $.ajax({
+        url: "/signup",
+        dataType: 'json',
+        type: 'POST',
+        async: false,
+        data: obj,
+        success: function(data, status, headers, config) {
+            console.log('success!');
+        }.bind(this),
+        error: function(data, status, headers, config) {
+            console.log('failure');
         }.bind(this)
     });
 }
