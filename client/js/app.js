@@ -35,22 +35,25 @@ app.controller('app', function ($scope, simpleFactory) {
   $scope.isLoggedIn = false;
   $scope.isLoggedIn = function() {
     $scope.loggedIn = localStorage.token != null && localStorage.token != "";
+    return $scope.loggedIn;
   }
   $scope.init = function() {
-        var user = getById();
-        $scope.instagramUsernameText = "Instagram username";
-        $scope.instagramUsername = user.instagramUsername;
-        $scope.tagsText = "Tags (comma separated)";
-        $scope.tags = user.tags;
-        $scope.tagsConfirmationText = tagsConfirmationText;
-        $scope.likesPerDay = user.likesPerDay / hoursInADay;
-        $scope.likesPerHourText = "Likes per hour";
-        $scope.maxLikesForOneTag = user.maxLikesForOneTag;
-        $scope.maxLikesForOneTagText = "Max likes for one tag (put 0 for no limit)";
-        $scope.followsPerDay = user.followsPerDay / hoursInADay;
-        $scope.followsPerHourText = "Follows per hour"
-        $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
-        $scope.unfollowsPerHourText = "Unfollows per hour";
+    if(checkIfNotLoggedIn()) return;
+    var user = getById();
+
+    $scope.instagramUsernameText = "Instagram username";
+    $scope.instagramUsername = user.instagramUsername;
+    $scope.tagsText = "Tags (comma separated)";
+    $scope.tags = user.tags;
+    $scope.tagsConfirmationText = tagsConfirmationText;
+    $scope.likesPerDay = user.likesPerDay / hoursInADay;
+    $scope.likesPerHourText = "Likes per hour";
+    $scope.maxLikesForOneTag = user.maxLikesForOneTag;
+    $scope.maxLikesForOneTagText = "Max likes for one tag (put 0 for no limit)";
+    $scope.followsPerDay = user.followsPerDay / hoursInADay;
+    $scope.followsPerHourText = "Follows per hour"
+    $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
+    $scope.unfollowsPerHourText = "Unfollows per hour";
     }
 });
 
@@ -75,7 +78,12 @@ app.config(function ($routeProvider) {
     .when('/login',
     {
       controller: 'app',
-        templateUrl: 'client/html/login.html'
+      templateUrl: 'client/html/login.html'
+    })
+    .when('/#/login',
+    {
+      controller: 'app',
+      templateUrl: 'client/html/login.html'
     })
     .otherwise({ redirectTo: '/bot' });
 
@@ -85,6 +93,13 @@ app.config(function ($routeProvider) {
 /*******************************************************************************************************************/
 function isString(str) {
   return typeof str === 'string';
+}
+function checkIfNotLoggedIn() {
+  if(isEmpty(localStorage.token)) {
+      window.location ='/#/login';
+      return true;
+  }
+  return false;
 }
 function outline(id, color){
     id = "#" + id;
@@ -132,6 +147,10 @@ function removeGet(parameter, dateToSend) {
                                                 //Server senders
 /*******************************************************************************************************************/
 function getById() {
+  if(isEmpty(localStorage.token)) {
+    window.location = '/#/login';
+    return;
+  }
   var user;
   $.ajax
   ({
@@ -151,6 +170,7 @@ function getById() {
 }
 
 function isABotRunning() {
+  if(checkIfNotLoggedIn()) return;
   var user = getById();
   var pid = user.pid;
   var userHasPid = pid === -1 ? false : true;
