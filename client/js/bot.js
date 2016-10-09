@@ -48,7 +48,8 @@ app.controller('bot', ['$scope', function($scope) {
 			maxLikesForOneTag: $scope.maxLikesForOneTag,
 			followsPerDay: $scope.followsPerDay * hoursInADay,
 			unfollowsPerDay: $scope.unfollowsPerDay * hoursInADay,
-			instagramPassword: $scope.instagramPassword
+			instagramPassword: $scope.instagramPassword,
+			id: localStorage.token
 		};
 		sendBotToServer(bot);
 

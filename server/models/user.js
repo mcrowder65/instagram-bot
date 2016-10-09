@@ -20,7 +20,8 @@ var userSchema = new Schema({
     maxLikesForOneTag: Number,
     followsPerDay: Number,
     password: String,
-    unfollowsPerDay: String
+    unfollowsPerDay: String,
+    pid: Number
 });
 
 // hash the password

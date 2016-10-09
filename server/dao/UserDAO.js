@@ -9,7 +9,8 @@ module.exports = {
 			likesPerDay: -1,
 			maxLikesForOneTag: -1,
 			followsPerDay: -1,
-			unfollowPerDay: -1
+			unfollowPerDay: -1,
+			pid: -1
 		}, function(err, tempUser, created) {
 			if(created) {
 				var token = user.generateToken(tempUser.username);
@@ -75,6 +76,17 @@ module.exports = {
 				res.sendStatus("403");
 			}
 		}); 
+	},
+	setPid: function(pid, userId, res) {
+		user.update({_id: userId}, {
+			pid: pid
+		}, function(err, tempUser) {
+			if(tempUser) {
+				res.json({pid:pid});
+			} else {
+				res.sendStatus("403");
+			}
+		});
 	}
 	
 }

@@ -1,8 +1,9 @@
-var fs = require('fs');
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/bot');
+var ps = require('ps-node');
+
 app.use(express.static(__dirname + ''));
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -32,15 +33,30 @@ app.post('/startBot', function(req, res) {
 	var followsPerDay = bot.followsPerDay;
 	var unfollowsPerDay = bot.unfollowsPerDay;
 	var instagramPassword = bot.instagramPassword;
-	var pidFile = " " + instagramUsername + "pid.txt";
+	var userId = bot.id;
 	var exec = require('child_process').exec;
 
 	var command = "python example.py " + instagramUsername + " " + instagramPassword + " " 
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
-				  + " " + unfollowsPerDay + " & echo $! >>" + pidFile;
+				  + " " + unfollowsPerDay;
 
 	exec(command, puts);
-	res.json({});
+	ps.lookup({
+		command: 'python',
+	}, function(err, resultList ) {
+		if (err) {
+		    throw new Error(err);
+		}
+		for(var i = 0; i < resultList.length; i++) {
+			var temp = resultList[i];
+			if(temp.arguments.indexOf(instagramUsername) != -1) {
+		    	var pid = temp.pid;
+		    	userDAO.setPid(pid, userId, res);
+	        }
+		}
+
+	});
+
 });
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);
