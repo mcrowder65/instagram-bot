@@ -196,7 +196,7 @@ function isABotRunning() {
       async: false,
       data: {pid: pid},
       success: function(data, status, headers, config) {
-        botRunning = data.botRunning;
+        botRunning = data.running;
       }.bind(this),
       error: function(data, status, headers, config) {
       }.bind(this)

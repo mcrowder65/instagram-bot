@@ -83,12 +83,11 @@ module.exports = {
 			pid: pid
 		}, function(err, tempUser) {
 			if(tempUser) {
-				res.json({pid:pid});
+				res.json({});
 			} else {
 				res.sendStatus("403");
 			}
 		});
 	}
-	
 }
 

@@ -55,11 +55,13 @@ app.controller('bot', ['$scope', function($scope) {
 	}
 	$scope.stopThisBot = function() {
 		var user = getById();
-		$scope.botRunning = stopBot(user.pid);
-		$scope.showConfirmation = false;
+		$scope.botRunning = stopBot(user.pid, user.instagramUsername);
+		var user2 = getById();
+		$scope.botRunning = stopBot(user2.pid, user.instagramUsername);		
+		$scope.showConfirmation = isABotRunning();
 	}
 }]);
-function stopBot(pid) {
+function stopBot(pid, instagramUsername) {
 	var botRunning = true;
 	$.ajax
 	({
@@ -67,7 +69,7 @@ function stopBot(pid) {
 		dataType: 'json',
 		type: 'POST',
 		async: false,
-		data: {pid: pid},
+		data: {pid: pid, id: localStorage.botToken, instagramUsername: instagramUsername},
 		success: function(data, status, headers, config){
 		  botRunning = data.botRunning;
 		}.bind(this),
@@ -85,6 +87,7 @@ function sendBotToServer(bot) {
 		async: false,
 		data: {bot: bot},
 		success: function(data, status, headers, config){
+		  console.log(data);
 		  user = data.data;
 		}.bind(this),
 		error: function(data, status, headers, config){

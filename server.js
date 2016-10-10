@@ -11,7 +11,6 @@ var userDAO = require('./server/dao/UserDAO.js');
 app.use(bodyParser.urlencoded({
         extended: true
 }));
-exec("ps aux | grep mcrowder65", puts);
 
 var portNumber = 3000;
 var server = app.listen(portNumber, function() {
@@ -30,18 +29,53 @@ function cleanArray(actual) {
 }
 
 function puts(error, stdout, stderr) { 
-	var output = stdout.split('\n');
-	output = output[0];
-	output = output.trim();
-
-	output = output.split(' ');
-	output = cleanArray(output);
-	console.log(output);
-	var pid = output[1];
-	console.log(pid);
+	
 
 }
+function isPidAlive(pid, res) {
+	var firstDigit = pid[0];
+	var restOfPid = pid.substring(1);
+	var pid = "[" + pid[0] + "]" + restOfPid;
+	var command = "python ps.py " + "\'" + pid + "\'";
+	exec(command, 
+		function puts(error, stdout, stderr) {
+			
+			stdout = stdout.replace(/\r?\n|\r/g, "");
+			if(!stdout || stdout === pid) {
+				res.json({running: false});
+			} else {
+				res.json({running:true});
+			}
 
+		}
+	);
+
+}
+function getPid(instagramUsername, userId, res) {
+	var command = "python ps.py \"\'[p]ython example.py " + instagramUsername + "\'\"";
+	exec(command, 
+		function parsePid(error, stdout, stderr) {
+			if(!stdout) {
+				res.json({});
+			} else {
+				var output = stdout.split('\n');
+				output = cleanArray(output);
+				output = output.length === 2 ? output[1] : output[0];
+				if(output > 2) {
+					res.json({status:"too many bots running"});
+				} else {
+					output = output.trim();
+					output = output.split(' ');
+					output = cleanArray(output);
+					var pid = output[1];
+					userDAO.setPid(pid, userId, res);
+				}
+				
+			}
+			
+		}
+	);
+}
 app.post('/startBot', function(req, res) {
 	var bot = req.body.bot;
 	var instagramUsername = bot.instagramUsername;
@@ -57,91 +91,27 @@ app.post('/startBot', function(req, res) {
 	var command = "python example.py " + instagramUsername + " " + instagramPassword + " " 
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
-
 	exec(command, puts);
-	ps.lookup({
-		command: 'python',
-	}, function(err, resultList ) {
-		if (err) {
-		    throw new Error(err);
-		}
-		for(var i = 0; i < resultList.length; i++) {
-			var temp = resultList[i];
-			if(temp.arguments.indexOf(instagramUsername) != -1) {
-		    	var pid = temp.pid;
-		    	userDAO.setPid(pid, userId, res);
-	        }
-		}
-
-	});
+	getPid(instagramUsername, userId, res);
 
 });
 app.post('/assignPid', function(req, res) {
-	console.log('assignPid');
 	var instagramUsername = req.body.instagramUsername;
 	var userId = req.body.userId;
-	// var command = "pidof python";
-	// var pid;
-	// exec(command, function puts(error, stdout, stderr) { 
-	// 	pid = stdout;
-	// 	console.log(pid);
-	// 	userDAO.setPid(pid, userId, res);
-	// });
-	ps.lookup({
-		command: 'python'
-	}, function(err, resultList ) {
-		if (err) {
-
-		    throw new Error(err);
-		}
-		var resSent = false;
-		console.log(resultList);
-		for(var i = 0; i < resultList.length; i++) {
-			var temp = resultList[i];
-			console.log(temp);
-			if(temp.arguments.indexOf(instagramUsername) != -1) {
-		    	var pid = temp.pid;
-		    	resSent = true;
-		    	console.log(pid);
-		    	userDAO.setPid(pid, userId, res);
-	        }
-		}
-		if(!resSent) {
-
-			res.json({});
-		}
-
-	});
+	getPid(instagramUsername, userId, res);
 });
 app.post('/stopBot', function(req, res) {
-	console.log("stop bot");
+	var instagramUsername = req.body.instagramUsername;
 	var pid = req.body.pid;
-	ps.kill( pid, function(err) {
-		res.json({botRunning: false});
-	});
+	var userId = req.body.userId;
+	var command = "python kill.py " + pid;
+	exec(command, puts);	
+	getPid(instagramUsername, userId, res);
 });
 app.post('/isPidAlive', function(req, res) {
+
 	var pid = req.body.pid;
-	if(pid === -1) {
-		res.json({botRunning: false});
-	} else {
-		ps.lookup({ pid: pid }, function(err, resultList ) {
-		    if (err) {
-		        throw new Error(err);
-		    }
-		    console.log(resultList);
-		    var process = resultList[0];	 
-		    console.log(process);
-		    if(process) {
-		    	console.log("true!");
-		 		res.json({botRunning: true});
-		    }
-		    else {
-		    	res.json({botRunning:false});
-		    }
-		});
-	}
-	
+	isPidAlive(pid, res);
 }); 
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);

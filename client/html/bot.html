@@ -39,39 +39,39 @@
                             <div ng-show="instagramUsername !== ''"> 
                                 <div ng-bind="instagramUsernameText"></div>
                             </div>
-                            <input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
+                            <input readonly type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
                         </span>
                         <span id="rightWrapper">
                             <div ng-show="tags !== ''">
                                 <div ng-bind="tagsText"></div>
                             </div>
-                            <input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+                            <input readonly type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
                         </span>         
                         <br><br>
                         <span id="leftWrapper">
                             <div ng-show="likesPerDay !== null">
                                 <div ng-bind="likesPerHourText"></div>
                             </div>
-                            <input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
+                            <input readonly type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
                         </span>
                         <span id="rightWrapper">
                             <div ng-show="maxLikesForOneTag !== null">
                                 <div ng-bind="maxLikesForOneTagText"></div>
                             </div>
-                            <input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
+                            <input readonly type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
                         </span>
                         <br><br>
                         <span id="leftWrapper">
                             <div ng-show="followsPerDay !== null">
                                 <div ng-bind="followsPerHourText"></div>
                             </div>
-                            <input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
+                            <input readonly type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
                         </span>
                         <span id="rightWrapper">
                             <div ng-show="unfollowsPerDay !== null">
                                 <div ng-bind="unfollowsPerHourText"></div>
                             </div>
-                            <input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
+                            <input readonly type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
                         </span>
                         <br><br>
                         <span id="leftWrapper">
