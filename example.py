@@ -9,6 +9,8 @@ password = arr[2]
 hashTags = arr[3].split(',')
 likesPerDay = int(arr[4])
 maxLikesForOneTag = int(arr[5])
+if maxLikesForOneTag == 0:
+     maxLikesForOneTag = 100000
 followsPerDay = int(arr[6])
 unfollowsPerDay = int(arr[7])
 

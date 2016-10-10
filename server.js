@@ -63,19 +63,26 @@ app.post('/assignPid', function(req, res) {
 		command: 'python',
 	}, function(err, resultList ) {
 		if (err) {
+
 		    throw new Error(err);
 		}
+		var resSent = false;
 		for(var i = 0; i < resultList.length; i++) {
 			var temp = resultList[i];
 			if(temp.arguments.indexOf(instagramUsername) != -1) {
 		    	var pid = temp.pid;
+		    	resSent = true;
 		    	userDAO.setPid(pid, userId, res);
 	        }
+		}
+		if(!resSent) {
+			res.json({});
 		}
 
 	});
 });
 app.post('/stopBot', function(req, res) {
+	console.log("stop bot");
 	var pid = req.body.pid;
 	ps.kill( pid, function(err) {
 		res.json({botRunning: false});

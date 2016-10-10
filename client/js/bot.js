@@ -16,6 +16,7 @@ app.controller('bot', ['$scope', function($scope) {
 		$scope.currentBotText = currentBotText;
 		$scope.botRunning = isABotRunning();
 		$scope.stopThisBotText = stopThisBotText;
+		assignPid($scope.instagramUsername);
 	}
 	$scope.multiplyValueByHours = function(value) {
 		var temp = value * hoursInADay;
