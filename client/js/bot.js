@@ -31,6 +31,7 @@ app.controller('bot', ['$scope', function($scope) {
 			$scope.tags =$scope.tags.split(',');	
 		}
 		$scope.showConfirmation = true;
+
 	}
 	$scope.sendBotToServer = function() {
 		var bot = {
@@ -45,6 +46,7 @@ app.controller('bot', ['$scope', function($scope) {
 		};
 		sendBotToServer(bot);
 		$scope.botRunning = isABotRunning();
+		assignPid($scope.instagramUsername);
 	}
 	$scope.isABotRunning = function() {
 		return isABotRunning();

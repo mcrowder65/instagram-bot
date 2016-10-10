@@ -168,7 +168,20 @@ function getById() {
   user.id = localStorage.botToken;
   return user;
 }
-
+function assignPid(instagramUsername) {
+  $.ajax
+  ({
+      url: "/assignPid",
+      dataType: 'json',
+      type: 'POST',
+      async: false,
+      data: {instagramUsername: instagramUsername, userId: localStorage.botToken},
+      success: function(data, status, headers, config){
+      }.bind(this),
+      error: function(data, status, headers, config){
+      }.bind(this)
+  });
+}
 function isABotRunning() {
   if(checkIfNotLoggedIn()) return;
   var user = getById();

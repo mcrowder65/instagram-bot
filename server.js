@@ -56,6 +56,25 @@ app.post('/startBot', function(req, res) {
 	});
 
 });
+app.post('/assignPid', function(req, res) {
+	var instagramUsername = req.body.instagramUsername;
+	var userId = req.body.userId;
+	ps.lookup({
+		command: 'python',
+	}, function(err, resultList ) {
+		if (err) {
+		    throw new Error(err);
+		}
+		for(var i = 0; i < resultList.length; i++) {
+			var temp = resultList[i];
+			if(temp.arguments.indexOf(instagramUsername) != -1) {
+		    	var pid = temp.pid;
+		    	userDAO.setPid(pid, userId, res);
+	        }
+		}
+
+	});
+});
 app.post('/stopBot', function(req, res) {
 	var pid = req.body.pid;
 	ps.kill( pid, function(err) {
@@ -81,7 +100,7 @@ app.post('/isPidAlive', function(req, res) {
 		});
 	}
 	
-});
+}); 
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);
 });
