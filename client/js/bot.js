@@ -41,7 +41,7 @@ app.controller('bot', ['$scope', function($scope) {
 			followsPerDay: $scope.followsPerDay * hoursInADay,
 			unfollowsPerDay: $scope.unfollowsPerDay * hoursInADay,
 			instagramPassword: $scope.instagramPassword,
-			id: localStorage.token
+			id: localStorage.botToken
 		};
 		sendBotToServer(bot);
 		$scope.botRunning = isABotRunning();

@@ -34,7 +34,7 @@ app.factory('simpleFactory', function(){
 app.controller('app', function ($scope, simpleFactory) {
   $scope.isLoggedIn = false;
   $scope.isLoggedIn = function() {
-    $scope.loggedIn = localStorage.token != null && localStorage.token != "";
+    $scope.loggedIn = localStorage.botToken != null && localStorage.botToken != "";
     return $scope.loggedIn;
   }
   $scope.init = function() {
@@ -95,7 +95,7 @@ function isString(str) {
   return typeof str === 'string';
 }
 function checkIfNotLoggedIn() {
-  if(isEmpty(localStorage.token)) {
+  if(isEmpty(localStorage.botToken)) {
       window.location ='/#/login';
       return true;
   }
@@ -147,7 +147,7 @@ function removeGet(parameter, dateToSend) {
                                                 //Server senders
 /*******************************************************************************************************************/
 function getById() {
-  if(isEmpty(localStorage.token)) {
+  if(isEmpty(localStorage.botToken)) {
     window.location = '/#/login';
     return;
   }
@@ -158,14 +158,14 @@ function getById() {
       dataType: 'json',
       type: 'POST',
       async: false,
-      data: {id: localStorage.token},
+      data: {id: localStorage.botToken},
       success: function(data, status, headers, config){
           user = data.data;
       }.bind(this),
       error: function(data, status, headers, config){
       }.bind(this)
   });
-  user.id = localStorage.token;
+  user.id = localStorage.botToken;
   return user;
 }
 

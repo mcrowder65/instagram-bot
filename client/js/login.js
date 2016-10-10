@@ -22,12 +22,12 @@ function login(username, password) {
         data: {username: username, password: password},
         async: false,
         success: function(data, status, headers, config){
-            localStorage.token = data.token;
+            localStorage.botToken = data.token;
             window.location="/index.html";
             success = true;
         }.bind(this),
         error: function(data, status, headers, config){
-            localStorage.token="";
+            localStorage.botToken="";
         }.bind(this)
     });
 }
