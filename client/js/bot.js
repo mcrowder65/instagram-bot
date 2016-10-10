@@ -14,9 +14,10 @@ app.controller('bot', ['$scope', function($scope) {
 		$scope.maxLikesForOneTagConfirmationText = maxLikesForOneTagConfirmationText;
 		$scope.showConfirmation = false;
 		$scope.currentBotText = currentBotText;
+		assignPid($scope.instagramUsername);
 		$scope.botRunning = isABotRunning();
 		$scope.stopThisBotText = stopThisBotText;
-		assignPid($scope.instagramUsername);
+		
 	}
 	$scope.multiplyValueByHours = function(value) {
 		var temp = value * hoursInADay;
