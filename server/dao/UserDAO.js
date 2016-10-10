@@ -53,7 +53,7 @@ module.exports = {
 	        		likesPerDay: tempUser.likesPerDay,
 	        		pid: tempUser.pid
 	        	}
-	            res.json({data});
+	            res.json({data: data});
 	       	} 
 	        else {
 	            res.sendStatus(403);
