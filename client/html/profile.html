@@ -2,11 +2,15 @@
 <link rel="stylesheet" type="text/css" href="client/css/app.css">
 <div data-ng-controller="profile">
 	<div ng-init="init()" class="center-block" id="block">
+		<div class="alert alert-warning" id="alert" role="alert">
+            If you change settings in this page, it may say that these settings are active in your current bot. But in reality it won't change unless you restart your bot with the updated settings.
+        </div>
         <div class="panel panel-primary">
             <div class="panel panel-heading" id="center">
             	Settings
             </div>
             <div class="panel-body">
+	            
             	<span id="leftWrapper">
 	            	<div ng-show="instagramUsername !== ''"> {{instagramUsernameText}}</div>
 	            	<input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>

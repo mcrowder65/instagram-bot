@@ -1,3 +1,7 @@
 input{
 	width:215px;
 }
+
+#alert{
+	text-align: center;
+}
