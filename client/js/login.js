@@ -14,6 +14,10 @@ app.controller('login', ['$scope', function ($scope) {
 function login(username, password) {
     var success= false;
     username = username.toLowerCase();
+    password = password.trim();
+    password = password.replace(/ /g, '');
+    console.log(username);
+    console.log(password);
     $.ajax
     ({
         url: "/login",
