@@ -5,7 +5,7 @@ var findOrCreate = require('mongoose-findorcreate')
 
 // setup bcrypt
 var bcrypt = require('bcryptjs');
-var SALT = bcrypt.genSaltSync();
+var SALT = "$2a$10$SUZVDRruranG5I/9mAHc6.";//bcrypt.genSaltSync();
 
 // setup json web token
 var jwt = require('jsonwebtoken');
@@ -31,6 +31,7 @@ userSchema.statics.hashPassword = function(password) {
 
 // check the password
 userSchema.methods.checkPassword = function(password) {
+	password = password.trim();
     return bcrypt.compareSync(password, this.password);
 };
 
