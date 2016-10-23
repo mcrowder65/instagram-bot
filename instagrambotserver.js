@@ -27,7 +27,15 @@ function cleanArray(actual) {
   }
   return newArray;
 }
-
+function cleanEmpties(arr) {
+	var newArr = [];
+	for(var i = 0; i < arr.length; i++) {
+		if(arr[i] !== '') {
+			newArr.push(arr[i]);
+		}
+	}
+	return newArr;
+}
 function puts(error, stdout, stderr) { 
 	
 
@@ -78,13 +86,13 @@ function getPid(instagramUsername, userId, res) {
 				res.json({});
 			} else {
 				var output = stdout.split('\n');
-				output = cleanArray(output);
-				if(output.length > 1) {
-					console.log('botoverload');
+				
+				output = cleanEmpties(output);
+				if(output.length > 2) {
 					res.json({status:"botoverload"});
 				} else {
 					if(output instanceof Array) {
-						output = output[0];
+						output = output[1];
 					}
 					output = output.split(' ');
 					output = cleanArray(output);

@@ -66,6 +66,7 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 	      		 instagramUsername: user.instagramUsername},
 	    }).then(function successCallback(response) {
 	    	$scope.getById();
+	    	$scope.showConfirmation = false;
 	    }, function errorCallback(response) {
 	        throw new Error("start bot busted");
 	    });

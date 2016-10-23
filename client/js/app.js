@@ -100,7 +100,9 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
          alert('For some reason, you have more than one bot running right now. ' 
               + 'Please kill one bot and refresh this page. This message ' 
               + 'will keep appearinng as long as there are two bots. So keep ' 
-              + 'killing until it\'s gone.');
+              + 'killing until it\'s gone. Once you click stop, this will redirect you ' 
+              + 'to the create a bot screen. Be sure to refresh again to be sure there ' 
+              + 'are no more bots running!!!');
          $scope.botRunning = true;
        }
     }, function errorCallback(response) {
