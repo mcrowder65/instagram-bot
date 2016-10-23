@@ -32,19 +32,38 @@ function puts(error, stdout, stderr) {
 	
 
 }
-function isPidAlive(pid, res) {
+function isPidAlive(pid, instagramUsername, res) {
+	pid = pid.toString();
 	var firstDigit = pid[0];
 	var restOfPid = pid.substring(1);
-	var pid = "[" + pid[0] + "]" + restOfPid;
-	var command = "python ps.py " + "\'" + pid + "\'";
+	var tempPid = "[" + pid[0] + "]" + restOfPid;
+	var command = "python ps.py " + "\'" + tempPid + "\'";
 	exec(command, 
 		function puts(error, stdout, stderr) {
-			
 			stdout = stdout.replace(/\r?\n|\r/g, "");
-			if(!stdout || stdout === pid) {
+
+			if(!stdout || stdout === tempPid) {
 				res.json({running: false});
 			} else {
-				res.json({running:true});
+				arr = stdout.split(' ');
+				for(var i = arr.length - 1; i > -1; i--) {
+					
+					if(arr[i] === '') {
+						arr.splice(i, 1);
+					}
+				}
+				if(arr.indexOf(instagramUsername) === -1) {
+					res.json({running: false});
+				} else if(arr[1] !== pid) {
+					res.json({running: false});
+				} else if(arr.indexOf('python') === -1) {
+					res.json({running: false});
+				} else if(arr.indexOf('example.py') === -1) {
+					res.json({running: false});
+				} else {
+					res.json({running:true});
+				}
+				
 			}
 
 		}
@@ -60,11 +79,13 @@ function getPid(instagramUsername, userId, res) {
 			} else {
 				var output = stdout.split('\n');
 				output = cleanArray(output);
-				output = output.length === 2 ? output[1] : output[0];
-				if(output > 2) {
-					res.json({status:"too many bots running"});
+				if(output.length > 1) {
+					console.log('botoverload');
+					res.json({status:"botoverload"});
 				} else {
-					output = output.trim();
+					if(output instanceof Array) {
+						output = output[0];
+					}
 					output = output.split(' ');
 					output = cleanArray(output);
 					var pid = output[1];
@@ -111,7 +132,8 @@ app.post('/stopBot', function(req, res) {
 app.post('/isPidAlive', function(req, res) {
 
 	var pid = req.body.pid;
-	isPidAlive(pid, res);
+	var instagramUsername = req.body.instagramUsername;
+	isPidAlive(pid, instagramUsername, res);
 }); 
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);

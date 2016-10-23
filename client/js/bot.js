@@ -1,7 +1,7 @@
 var app = angular.module('app');
 
 
-app.controller('bot', ['$scope', function($scope) {
+app.controller('bot', ['$scope', '$http', function($scope, $http) {
 	$scope.initBotView = function() {
 		$scope.instagramPasswordText = instagramPasswordText;
 		$scope.startBotButtonText = startBotButtonText;
@@ -14,8 +14,6 @@ app.controller('bot', ['$scope', function($scope) {
 		$scope.maxLikesForOneTagConfirmationText = maxLikesForOneTagConfirmationText;
 		$scope.showConfirmation = false;
 		$scope.currentBotText = currentBotText;
-		assignPid($scope.instagramUsername);
-		$scope.botRunning = isABotRunning();
 		$scope.stopThisBotText = stopThisBotText;
 		
 	}
@@ -46,51 +44,30 @@ app.controller('bot', ['$scope', function($scope) {
 			instagramPassword: $scope.instagramPassword,
 			id: localStorage.botToken
 		};
-		sendBotToServer(bot);
-		$scope.botRunning = isABotRunning();
-		assignPid($scope.instagramUsername);
-	}
-	$scope.isABotRunning = function() {
-		return isABotRunning();
+		$http({
+	      method: 'POST',
+	      url: '/startBot',
+	      data: {bot: bot},
+	    }).then(function successCallback(response) {
+	    	$scope.getById();
+	    }, function errorCallback(response) {
+	        throw new Error("start bot busted");
+	    });
+		
 	}
 	$scope.stopThisBot = function() {
-		var user = getById();
-		$scope.botRunning = stopBot(user.pid, user.instagramUsername);
-		var user2 = getById();
-		$scope.botRunning = stopBot(user2.pid, user.instagramUsername);		
-		$scope.showConfirmation = isABotRunning();
+		var user = $scope.getUser();
+		$http({
+	      method: 'POST',
+	      url: '/stopBot',
+	      data: {
+	      		 pid: user.pid, 
+	      		 id: localStorage.botToken, 
+	      		 instagramUsername: user.instagramUsername},
+	    }).then(function successCallback(response) {
+	    	$scope.getById();
+	    }, function errorCallback(response) {
+	        throw new Error("start bot busted");
+	    });
 	}
 }]);
-function stopBot(pid, instagramUsername) {
-	var botRunning = true;
-	$.ajax
-	({
-		url: "/stopBot",
-		dataType: 'json',
-		type: 'POST',
-		async: false,
-		data: {pid: pid, id: localStorage.botToken, instagramUsername: instagramUsername},
-		success: function(data, status, headers, config){
-		  botRunning = data.botRunning;
-		}.bind(this),
-		error: function(data, status, headers, config){
-		}.bind(this)
-	});
-	return botRunning;
-}
-function sendBotToServer(bot) {
-	$.ajax
-	({
-		url: "/startBot",
-		dataType: 'json',
-		type: 'POST',
-		async: false,
-		data: {bot: bot},
-		success: function(data, status, headers, config){
-		  console.log(data);
-		  user = data.data;
-		}.bind(this),
-		error: function(data, status, headers, config){
-		}.bind(this)
-	});
-}

@@ -22,7 +22,12 @@ const perDayText = ' per day';
 const arrow = '-> ';
 const currentBotText = "Current bot";
 const stopThisBotText = "Stop this bot";
-
+const tagsText = "Tags (comma separated)";
+const instagramUsernameText = "Instagram username";
+const likesPerHourText = "Likes per hour";
+const maxLikesForOneTagText = "Max likes for one tag (put 0 for no limit)";
+const followsPerHourText = "Follows per hour";
+const unfollowsPerHourText = "Unfollows per hour";
 
 var app = angular.module('app', ['ngRoute']);
 app.factory('simpleFactory', function(){
@@ -31,31 +36,97 @@ app.factory('simpleFactory', function(){
     return factory;
 });
 
-app.controller('app', function ($scope, simpleFactory) {
+app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory) {
   $scope.isLoggedIn = false;
   $scope.isLoggedIn = function() {
     $scope.loggedIn = localStorage.botToken != null && localStorage.botToken != "";
     return $scope.loggedIn;
   }
   $scope.init = function() {
-    if(checkIfNotLoggedIn()) return;
-    var user = getById();
-
-    $scope.instagramUsernameText = "Instagram username";
-    $scope.instagramUsername = user.instagramUsername;
-    $scope.tagsText = "Tags (comma separated)";
-    $scope.tags = user.tags;
     $scope.tagsConfirmationText = tagsConfirmationText;
-    $scope.likesPerDay = user.likesPerDay / hoursInADay;
-    $scope.likesPerHourText = "Likes per hour";
-    $scope.maxLikesForOneTag = user.maxLikesForOneTag;
-    $scope.maxLikesForOneTagText = "Max likes for one tag (put 0 for no limit)";
-    $scope.followsPerDay = user.followsPerDay / hoursInADay;
-    $scope.followsPerHourText = "Follows per hour"
-    $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
-    $scope.unfollowsPerHourText = "Unfollows per hour";
+    $scope.tagsText = tagsText;
+    $scope.likesPerHourText = likesPerHourText;
+    $scope.maxLikesForOneTagText = maxLikesForOneTagText;
+    $scope.followsPerHourText = followsPerHourText;
+    $scope.unfollowsPerHourText = unfollowsPerHourText;
+    $scope.instagramUsernameText = instagramUsernameText;
+    if(checkIfNotLoggedIn()) return;
+    $scope.getById();
+      
+  }
+  $scope.getUser = function() {
+    return {
+      id: localStorage.botToken,
+      instagramUsername: $scope.instagramUsername,
+      tags: $scope.tags,
+      likesPerDay: $scope.likesPerDay * hoursInADay,
+      maxLikesForOneTag: $scope.maxLikesForOneTag,
+      followsPerDay: $scope.followsPerDay * hoursInADay,
+      unfollowsPerDay: $scope.unfollowsPerDay * hoursInADay,
+      pid: $scope.pid
+    };
+  }
+  $scope.getById = function() {
+    if(isEmpty(localStorage.botToken)) {
+      window.location = '/#/login';
+      return;
     }
-});
+    $http({
+      method: 'POST',
+      url: '/getById',
+      data: {id: localStorage.botToken},
+    }).then(function successCallback(response) {
+      var user = response.data.data;
+      $scope.instagramUsername = user.instagramUsername;
+      $scope.tags = user.tags;
+      $scope.likesPerDay = user.likesPerDay / hoursInADay;
+      $scope.maxLikesForOneTag = user.maxLikesForOneTag;
+      $scope.followsPerDay = user.followsPerDay / hoursInADay;
+      $scope.unfollowsPerDay = user.unfollowsPerDay / hoursInADay;
+      $scope.pid = user.pid;
+      $scope.isABotRunning();
+    }, function errorCallback(response) {
+
+        throw new Error("Get by id may be busted?");
+    });
+  }
+  $scope.assignPid = function(instagramUsername) {
+    $http({
+      method: 'POST',
+      url: '/assignPid',
+      data: {instagramUsername: $scope.instagramUsername, userId: localStorage.botToken},
+    }).then(function successCallback(response) {
+       if(response.data.status === 'botoverload') {
+         alert('For some reason, you have more than one bot running right now. ' 
+              + 'Please kill one bot and refresh this page. This message ' 
+              + 'will keep appearinng as long as there are two bots. So keep ' 
+              + 'killing until it\'s gone.');
+         $scope.botRunning = true;
+       }
+    }, function errorCallback(response) {
+        throw new Error("assignPid busted");
+    });
+  }
+  $scope.isABotRunning = function() {
+    var user = $scope.getUser();
+    var pid = user.pid;
+    if(!pid) {
+      return;
+    }
+    $http({
+      method: 'POST',
+      url: '/isPidAlive',
+      data: {pid: pid, instagramUsername: $scope.instagramUsername},
+    }).then(function successCallback(response) {
+      $scope.assignPid();
+      $scope.botRunning = response.data.running;
+      
+    }, function errorCallback(response) {
+      $scope.botRunning = false;
+        throw new Error("isABotRunning busted");
+    });
+  }
+}]);
 
 app.config(function ($routeProvider) {
 
@@ -146,63 +217,8 @@ function removeGet(parameter, dateToSend) {
 /*******************************************************************************************************************/
                                                 //Server senders
 /*******************************************************************************************************************/
-function getById() {
-  if(isEmpty(localStorage.botToken)) {
-    window.location = '/#/login';
-    return;
-  }
-  var user;
-  $.ajax
-  ({
-      url: "/getById",
-      dataType: 'json',
-      type: 'POST',
-      async: false,
-      data: {id: localStorage.botToken},
-      success: function(data, status, headers, config){
-          user = data.data;
-      }.bind(this),
-      error: function(data, status, headers, config){
-      }.bind(this)
-  });
-  user.id = localStorage.botToken;
-  return user;
-}
-function assignPid(instagramUsername) {
-  $.ajax
-  ({
-      url: "/assignPid",
-      dataType: 'json',
-      type: 'POST',
-      async: false,
-      data: {instagramUsername: instagramUsername, userId: localStorage.botToken},
-      success: function(data, status, headers, config){
-      }.bind(this),
-      error: function(data, status, headers, config){
-      }.bind(this)
-  });
-}
-function isABotRunning() {
-  if(checkIfNotLoggedIn()) return;
-  var user = getById();
-  var pid = user.pid;
-  var userHasPid = pid === -1 ? false : true;
-  var botRunning = false;
-  $.ajax
-  ({
-      url: "/isPidAlive",
-      dataType: 'json',
-      type: 'POST',
-      async: false,
-      data: {pid: pid},
-      success: function(data, status, headers, config) {
-        botRunning = data.running;
-      }.bind(this),
-      error: function(data, status, headers, config) {
-      }.bind(this)
-  });
-  return botRunning;
-}
+
+
 function isValidNumber(num) {
   return  num === undefined || num === null || 
           !Number.isInteger(num) || num < 0 ? false : true;
