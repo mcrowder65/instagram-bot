@@ -50,7 +50,7 @@ function isPidAlive(pid, instagramUsername, res) {
 	exec(command,
 		function puts(error, stdout, stderr) {
 			stdout = stdout.replace(/\r?\n|\r/g, "");
-
+      console.log('stdout ', stdout);
 			if(!stdout || stdout === tempPid) {
 				res.json({running: false});
 			} else {
@@ -62,12 +62,16 @@ function isPidAlive(pid, instagramUsername, res) {
 					}
 				}
 				if(arr.indexOf(instagramUsername) === -1) {
+          console.log('arr.indexOf(instagramUsername) === -1');
 					res.json({running: false});
 				} else if(arr[1] !== pid) {
+          console.log('arr[1] !== pid');
 					res.json({running: false});
 				} else if(arr.indexOf('python') === -1) {
+          console.log('arr.indexOf(python) === -1')
 					res.json({running: false});
 				} else if(arr.indexOf('example.py') === -1) {
+          console.log('arr.indexOf(example.py) === -1')
 					res.json({running: false});
 				} else {
 					res.json({running:true});
