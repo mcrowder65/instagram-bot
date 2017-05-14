@@ -13,106 +13,92 @@ app.use(bodyParser.urlencoded({
 }));
 
 var portNumber = 2999;
-var server = app.listen(portNumber, function() {
+var server = app.listen(portNumber, () => {
 	console.log("Started on port " + portNumber);
 	var host = server.address().address;
 	var port = server.address().port;
 });
-function cleanArray(actual) {
-  var newArray = [];
-  for (var i = 0; i < actual.length; i++) {
-    if (actual[i]) {
-      newArray.push(actual[i]);
-    }
-  }
-  return newArray;
+const cleanArray = (actual) => {
+  return actual.filter( (obj) => {
+    return !!obj;
+  });
 }
-function cleanEmpties(arr) {
-	var newArr = [];
-	for(var i = 0; i < arr.length; i++) {
-		if(arr[i] !== '') {
-			newArr.push(arr[i]);
-		}
-	}
-	return newArr;
+
+const cleanEmpties = (arr) => {
+  return arr.filter( (obj) => {
+    return obj !== '';
+  });
 }
-function puts(error, stdout, stderr) {
+
+const puts = (error, stdout, stderr) => {
 
 
 }
-function isPidAlive(pid, instagramUsername, res) {
+const isPidAlive = (pid, instagramUsername, res) => {
 	pid = pid.toString();
 	var firstDigit = pid[0];
 	var restOfPid = pid.substring(1);
 	var tempPid = "[" + pid[0] + "]" + restOfPid;
 	var command = "python ps.py " + "\'" + tempPid + "\'";
-  console.log('isPidAlive command ', command);
 	exec(command,
-		function puts(error, stdout, stderr) {
+		function puts(error, stdout, stderr){
 			stdout = stdout.replace(/\r?\n|\r/g, "");
-      console.log('stdout ', stdout);
 			if(!stdout || stdout === tempPid) {
 				res.json({running: false});
 			} else {
 				arr = stdout.split(' ');
-				for(var i = arr.length - 1; i > -1; i--) {
-
-					if(arr[i] === '') {
-						arr.splice(i, 1);
-					}
-				}
+        arr = arr.filter( (obj) => {
+          return obj !== '';
+        });
 				if(arr.indexOf(instagramUsername) === -1) {
-          console.log('arr.indexOf(instagramUsername) === -1');
 					res.json({running: false});
 				} else if(arr[1] !== pid) {
-          console.log('arr[1] !== pid');
 					res.json({running: false});
 				} else if(arr.indexOf('python') === -1) {
-          console.log('arr.indexOf(python) === -1')
 					res.json({running: false});
 				} else if(arr.indexOf('src/example.py') === -1) {
-          console.log('arr.indexOf(example.py) === -1')
 					res.json({running: false});
 				} else {
 					res.json({running:true});
 				}
-
 			}
 
 		}
 	);
 
 }
-function getPid(instagramUsername, userId, res) {
+const getPid = (instagramUsername, userId, res) => {
 	var command = "python ps.py \"\'[p]ython src/example.py " + instagramUsername + "\'\"";
-	exec(command,
-		function parsePid(error, stdout, stderr) {
-			if(!stdout) {
-				res.json({});
-			} else {
-				var output = stdout.split('\n');
-				output = cleanEmpties(output);
-        console.log('output ', output);
-				if(output.length > 2) {
-          console.log('output length > 2');
-					res.json({status:"botoverload"});
-				} else {
-					if(output instanceof Array) {
-						output = output[1];
-					}
+    exec(command,
+  		parsePid = (error, stdout, stderr) => {
+        try {
+    			if(!stdout) {
+            // no output
+    				res.json({});
+    			} else {
+    				var output = stdout.split('\n');
+    				output = cleanEmpties(output);
 
-					output = output.split(' ');
-					output = cleanArray(output);
-          console.log('output ', output);
-					var pid = output[1];
-          console.log('pid ', pid)
-					userDAO.setPid(pid, userId, res);
-				}
+    				if(output.length > 2) {
+    					res.json({status:"botoverload"});
+    				} else {
+    					if(output instanceof Array) {
+    						output = output[0];
+    					}
+    					output = output.split(' ');
+    					output = cleanArray(output);
+    					var pid = output[1];
+    					userDAO.setPid(pid, userId, res);
+    				}
 
-			}
+    			}
 
-		}
-	);
+        } catch(error) {
+          console.error(error);
+        }
+  		}
+  	);
+
 }
 app.post('/startBot', function(req, res) {
 	var bot = req.body.bot;
@@ -129,7 +115,6 @@ app.post('/startBot', function(req, res) {
 	var command = "python src/example.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
-  console.log('command ', command);
 	exec(command, puts);
 	getPid(instagramUsername, userId, res);
 
