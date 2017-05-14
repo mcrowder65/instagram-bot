@@ -117,9 +117,10 @@ app.post('/startBot', function(req, res) {
 	var userId = bot.id;
 
 
-	var command = "python example.py " + instagramUsername + " " + instagramPassword + " "
+	var command = "python src/example.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
+  console.log('command ', command);
 	exec(command, puts);
 	getPid(instagramUsername, userId, res);
 
