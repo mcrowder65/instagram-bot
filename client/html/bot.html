@@ -1,9 +1,11 @@
 <link rel="stylesheet" type="text/css" href="client/css/app.css">
 <div class="wrapper" data-ng-controller="bot" ng-init="init(); initBotView()">
-  <div class="center card" ng-show="botRunning">
+  <div class="center card current-bot" ng-show="botRunning">
     <h3 ng-bind="currentBotText"></h3>
     <b>{{instagramUsernameText}}:</b> {{instagramUsername}} <br>
-    <b>{{tagsConfirmationText}}:</b> {{tags}}<br>
+    <div class="wrap">
+      <b>{{tagsConfirmationText}}:</b> {{tags}}
+    </div>
     <b>{{likesPerHourText}}:</b> {{likesPerDay}}
     <span ng-bind="multiplyValueByHours(likesPerDay)"></span><br>
     <b>{{maxLikesForOneTagConfirmationText}}:</b> {{maxLikesForOneTag}}<br>
@@ -23,39 +25,40 @@
       <h3 ng-bind="panelHeadingText"></h3>
       <div class="input">
           <div ng-show="instagramUsername !== ''">
-              <div ng-bind="instagramUsernameText"></div>
+              <h4 ng-bind="instagramUsernameText"></h4>
           </div>
-          <input readonly type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
+          <div readonly type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-bind="instagramUsername"></div>
       </div>
-      <div class="input">
+      <div class="input wrap">
         <div ng-show="tags !== ''">
-          <div ng-bind="tagsText"></div>
+          <h4 ng-bind="tagsText"></h4>
         </div>
-        <input readonly type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+        <div readonly type="textbox" id="tags" placeholder="{{tagsText}}" ng-bind="tags"></div>
       </div>
       <div class="input">
         <div ng-show="likesPerDay !== null">
-          <div ng-bind="likesPerHourText"></div>
+          <h4 ng-bind="likesPerHourText"></h4>
         </div>
-        <input readonly type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
+        <div readonly type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-bind="likesPerDay">
+        </div>
       </div>
       <div class="input">
         <div ng-show="maxLikesForOneTag !== null">
-          <div ng-bind="maxLikesForOneTagText"></div>
+          <h4 ng-bind="maxLikesForOneTagText"></h4>
         </div>
-        <input readonly type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
+        <div readonly type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-bind="maxLikesForOneTag"></div>
       </div>
       <div class="input">
         <div ng-show="followsPerDay !== null">
-          <div ng-bind="followsPerHourText"></div>
+          <h4 ng-bind="followsPerHourText"></h4>
         </div>
-        <input readonly type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
+        <div readonly type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-bind="followsPerDay"></div>
       </div>
       <div class="input">
         <div ng-show="unfollowsPerDay !== null">
-          <div ng-bind="unfollowsPerHourText"></div>
+          <h4 ng-bind="unfollowsPerHourText"></h4>
         </div>
-        <input readonly type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
+        <div readonly type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-bind="unfollowsPerDay"></div>
       </div>
       <div class="input">
         <div ng-show="instagramPassword !== '' && instagramPassword !== undefined">
@@ -70,10 +73,10 @@
       </div>
     </div>
     <div ng-show="showConfirmation">
-        <div class="alert alert-danger" id="confirmationMessage" role="alert">
+        <div class="alert alert-danger wrap" id="confirmationMessage" role="alert">
             <div ng-bind="confirmBotMessage"></div>
         </div>
-        <div class="alert alert-info" id="confirmationMessage" role="alert">
+        <div class="alert alert-info wrap" id="confirmationMessage" role="alert">
             Things to note: if you input<br> <b>laneyandjuliet,crowderfam2016</b><br> as your tag input, it should display in the confirmation as <br><b>["laneyandjuliet","crowderfam2016"]</b>
         </div>
         <div class="card">
@@ -81,7 +84,10 @@
           <h3 ng-bind="confirmMessage"></h3>
           <b>{{instagramUsernameText}}:</b> {{instagramUsername}} <br>
           <b>{{instagramPasswordConfirmationText}}:</b> {{instagramPassword}}<br>
-          <b>{{tagsConfirmationText}}:</b> {{tags}}<br>
+          <b>{{tagsConfirmationText}}:</b>
+          <div class="wrap">
+            {{tags}}
+          </div>
           <b>{{likesPerHourText}}:</b> {{likesPerDay}}
           <span ng-bind="multiplyValueByHours(likesPerDay)"></span><br>
           <b>{{maxLikesForOneTagConfirmationText}}:</b> {{maxLikesForOneTag}}<br>
