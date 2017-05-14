@@ -86,17 +86,21 @@ function getPid(instagramUsername, userId, res) {
 				res.json({});
 			} else {
 				var output = stdout.split('\n');
-
 				output = cleanEmpties(output);
+        console.log('output ', output);
 				if(output.length > 2) {
+          console.log('output length > 2');
 					res.json({status:"botoverload"});
 				} else {
 					if(output instanceof Array) {
 						output = output[1];
 					}
+
 					output = output.split(' ');
 					output = cleanArray(output);
+          console.log('output ', output);
 					var pid = output[1];
+          console.log('pid ', pid)
 					userDAO.setPid(pid, userId, res);
 				}
 
