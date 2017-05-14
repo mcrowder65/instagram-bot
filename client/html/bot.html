@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="client/css/app.css">
 <div class="wrapper" data-ng-controller="bot" ng-init="init(); initBotView()">
-  <div ng-show="botRunning">
+  <div class="center card" ng-show="botRunning">
     <h3 ng-bind="currentBotText"></h3>
     <b>{{instagramUsernameText}}:</b> {{instagramUsername}} <br>
     <b>{{tagsConfirmationText}}:</b> {{tags}}<br>
