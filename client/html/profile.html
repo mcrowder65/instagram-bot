@@ -9,33 +9,28 @@
 								<div class="input">
 									<div ng-show="instagramUsername !== ''"> {{instagramUsernameText}}</div>
 									<input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
-									<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
 								</div>
 								<div class="input">
 		            	<div ng-show="tags !== ''">{{tagsText}} </div>
 									<textarea style="max-width: 200px" type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
-		            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
 								</div>
 								<div class="input">
 									<div ng-show="likesPerDay !== null">{{likesPerHourText}}</div>
 									<input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
-									<button type="button" class="btn btn-primary btn-xs" ng-click="setLikesPerDay()">Set</button>
 								</div>
 								<div class="input">
 									<div ng-show="maxLikesForOneTag !== null">{{maxLikesForOneTagText}}</div>
 									<input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
-									<button type="button" class="btn btn-primary btn-xs" ng-click="setMaxLikesForOneTag()">Set</button>
 								</div>
 								<div class="input">
 									<div ng-show="followsPerDay !== null">{{followsPerHourText}}</div>
 									<input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
-									<button type="button" class="btn btn-primary btn-xs" ng-click="setFollowsPerDay()">Set</button>
 								</div>
 								<div class="input">
 									<div ng-show="unfollowsPerDay !== null">{{unfollowsPerHourText}}</div>
 									<input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
-									<button type="button" class="btn btn-primary btn-xs" ng-click="setUnfollowsPerDay()">Set</button>
 								</div>
+								<button type="button" class="btn btn-primary input" ng-click="set();">Set</button>
         </div>
     </div>
 </div>
