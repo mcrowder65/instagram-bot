@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
         extended: true
 }));
 
-var portNumber = 3000;
+var portNumber = 2999;
 var server = app.listen(portNumber, function() {
 	console.log("Started on port " + portNumber);
 	var host = server.address().address;
@@ -36,8 +36,8 @@ function cleanEmpties(arr) {
 	}
 	return newArr;
 }
-function puts(error, stdout, stderr) { 
-	
+function puts(error, stdout, stderr) {
+
 
 }
 function isPidAlive(pid, instagramUsername, res) {
@@ -46,7 +46,7 @@ function isPidAlive(pid, instagramUsername, res) {
 	var restOfPid = pid.substring(1);
 	var tempPid = "[" + pid[0] + "]" + restOfPid;
 	var command = "python ps.py " + "\'" + tempPid + "\'";
-	exec(command, 
+	exec(command,
 		function puts(error, stdout, stderr) {
 			stdout = stdout.replace(/\r?\n|\r/g, "");
 
@@ -55,7 +55,7 @@ function isPidAlive(pid, instagramUsername, res) {
 			} else {
 				arr = stdout.split(' ');
 				for(var i = arr.length - 1; i > -1; i--) {
-					
+
 					if(arr[i] === '') {
 						arr.splice(i, 1);
 					}
@@ -71,7 +71,7 @@ function isPidAlive(pid, instagramUsername, res) {
 				} else {
 					res.json({running:true});
 				}
-				
+
 			}
 
 		}
@@ -80,13 +80,13 @@ function isPidAlive(pid, instagramUsername, res) {
 }
 function getPid(instagramUsername, userId, res) {
 	var command = "python ps.py \"\'[p]ython example.py " + instagramUsername + "\'\"";
-	exec(command, 
+	exec(command,
 		function parsePid(error, stdout, stderr) {
 			if(!stdout) {
 				res.json({});
 			} else {
 				var output = stdout.split('\n');
-				
+
 				output = cleanEmpties(output);
 				if(output.length > 2) {
 					res.json({status:"botoverload"});
@@ -99,9 +99,9 @@ function getPid(instagramUsername, userId, res) {
 					var pid = output[1];
 					userDAO.setPid(pid, userId, res);
 				}
-				
+
 			}
-			
+
 		}
 	);
 }
@@ -115,9 +115,9 @@ app.post('/startBot', function(req, res) {
 	var unfollowsPerDay = bot.unfollowsPerDay;
 	var instagramPassword = bot.instagramPassword;
 	var userId = bot.id;
-	
 
-	var command = "python example.py " + instagramUsername + " " + instagramPassword + " " 
+
+	var command = "python example.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
 	exec(command, puts);
@@ -134,7 +134,7 @@ app.post('/stopBot', function(req, res) {
 	var pid = req.body.pid;
 	var userId = req.body.userId;
 	var command = "python kill.py " + pid;
-	exec(command, puts);	
+	exec(command, puts);
 	getPid(instagramUsername, userId, res);
 });
 app.post('/isPidAlive', function(req, res) {
@@ -142,7 +142,7 @@ app.post('/isPidAlive', function(req, res) {
 	var pid = req.body.pid;
 	var instagramUsername = req.body.instagramUsername;
 	isPidAlive(pid, instagramUsername, res);
-}); 
+});
 app.post('/signup', function(req, res) {
 	userDAO.signUp(req.body, res);
 });

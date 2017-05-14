@@ -12,8 +12,8 @@
     	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="libs/favicon.ico" />
         <link rel="icon" type="image/png" href="libs/favicon.ico"/>
 	</head>
-	
-	<body onload="auth()" data-ng-controller="app">
+
+	<body data-ng-controller="app">
 		<script src="libs/jquery/jquery-2.2.3.js"></script>
 		<script src="libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 		<script src="libs/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
@@ -29,11 +29,9 @@
 
 			<nav class="navbar navbar-default" id="navbar" data-ng-init="isLoggedIn()">
 				<a class="navbar-brand" href="/#/bot">Bot</a>
-				<ul class="nav navbar-nav">
-					<li data-ng-show="isLoggedIn() == true"><a href="/#/profile">Profile settings</a></li>
-				 	<li data-ng-show="isLoggedIn() == true"><a href="/#/" onclick="logout()">Log out</a></li>
-				 	<li data-ng-show="isLoggedIn() == false"><a href="/#/login">Log in</a></li>
-				</ul>
+				<a class="navbar-brand" data-ng-show="isLoggedIn() == true"href="/#/profile">Profile settings</a>
+				<a class="navbar-brand" data-ng-show="isLoggedIn() == true"href="/#/" onclick="logout()">Log out</a>
+				<a class="navbar-brand" data-ng-show="isLoggedIn() == false" href="/#/login">Log in</a>
 			</nav>
 		</header>
 		<br><br><br>
@@ -53,12 +51,3 @@
 		}
 	</script>
 </html>
-
-
-
-
-
-
-
-
-

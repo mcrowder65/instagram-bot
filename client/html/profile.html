@@ -1,59 +1,41 @@
-<link rel="stylesheet" type="text/css" href="client/css/profile.css">
 <link rel="stylesheet" type="text/css" href="client/css/app.css">
-<div data-ng-controller="profile">
-	<div ng-init="init()" class="center-block" id="block">
+<div class="wrapper" data-ng-controller="profile">
+	<div class="center" ng-init="init()">
 		<div class="alert alert-warning" id="alert" role="alert">
-            If you change settings in this page, it may say that these settings are active in your current bot. But in reality it won't change unless you restart your bot with the updated settings.
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel panel-heading" id="center">
-            	Settings
-            </div>
-            <div class="panel-body">
-	            
-            	<span id="leftWrapper">
-	            	<div ng-show="instagramUsername !== ''"> {{instagramUsernameText}}</div>
-	            	<input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
-	            </span>
-	            <span id="rightWrapper">
-	            	<div ng-show="tags !== ''">{{tagsText}} </div>
-	            	<input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
-	            </span>			
-            	<br><br>
-            	<span id="leftWrapper">
-            		<div ng-show="likesPerDay !== null">{{likesPerHourText}}</div>
-	            	<input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setLikesPerDay()">Set</button>
-	            </span>
-	            <span id="rightWrapper">
-	            	<div ng-show="maxLikesForOneTag !== null">{{maxLikesForOneTagText}}</div>
-	            	<input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setMaxLikesForOneTag()">Set</button>
-	            </span>
-            	<br><br>
-            	<span id="leftWrapper">
-            		<div ng-show="followsPerDay !== null">{{followsPerHourText}}</div>
-	            	<input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setFollowsPerDay()">Set</button>
-	            </span>
-	            <span id="rightWrapper">
-	            	<div ng-show="unfollowsPerDay !== null">{{unfollowsPerHourText}}</div>
-	            	<input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
-	            	<button type="button" class="btn btn-primary btn-xs" ng-click="setUnfollowsPerDay()">Set</button>
-            	</span>
-          	</div>
+      If you change settings in this page, it may say that these settings are active in your current bot. But in reality it won't change unless you restart your bot with the updated settings.
+    </div>
+        <div class="card">
+            	<h3>Settings</h3>
+								<div class="profile-input">
+									<div ng-show="instagramUsername !== ''"> {{instagramUsernameText}}</div>
+									<input type="text" id="instagramUsername" placeholder="{{instagramUsernameText}}" ng-model="instagramUsername"/>
+									<button type="button" class="btn btn-primary btn-xs" ng-click="setInstagramUsername()">Set</button>
+								</div>
+								<div class="profile-input">
+		            	<div ng-show="tags !== ''">{{tagsText}} </div>
+		            	<input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+		            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
+								</div>
+								<div class="profile-input">
+									<div ng-show="likesPerDay !== null">{{likesPerHourText}}</div>
+									<input type="number" min="0" id="likesPerDay" placeholder="{{likesPerHourText}}" ng-model="likesPerDay"/>
+									<button type="button" class="btn btn-primary btn-xs" ng-click="setLikesPerDay()">Set</button>
+								</div>
+								<div class="profile-input">
+									<div ng-show="maxLikesForOneTag !== null">{{maxLikesForOneTagText}}</div>
+									<input type="number" min="0" id="maxLikesForOneTag" placeholder="{{maxLikesForOneTagText}}" ng-model="maxLikesForOneTag" />
+									<button type="button" class="btn btn-primary btn-xs" ng-click="setMaxLikesForOneTag()">Set</button>
+								</div>
+								<div class="profile-input">
+									<div ng-show="followsPerDay !== null">{{followsPerHourText}}</div>
+									<input type="number" min="0" id="followsPerDay" placeholder="{{followsPerHourText}}" ng-model="followsPerDay"/>
+									<button type="button" class="btn btn-primary btn-xs" ng-click="setFollowsPerDay()">Set</button>
+								</div>
+								<div class="profile-input">
+									<div ng-show="unfollowsPerDay !== null">{{unfollowsPerHourText}}</div>
+									<input type="number" min="0" id="unfollowsPerDay" placeholder="{{unfollowsPerHourText}}" ng-model="unfollowsPerDay"/>
+									<button type="button" class="btn btn-primary btn-xs" ng-click="setUnfollowsPerDay()">Set</button>
+								</div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-

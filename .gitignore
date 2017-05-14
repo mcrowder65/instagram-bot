@@ -4,3 +4,12 @@ node_modules
 *.bson
 
 dump/bot/users.metadata.json
+
+
+.metadata
+
+RemoteSystemsTempFiles/.project
+
+*.pyc
+
+instabot.pyc
