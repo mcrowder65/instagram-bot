@@ -13,7 +13,7 @@
 								</div>
 								<div class="input">
 		            	<div ng-show="tags !== ''">{{tagsText}} </div>
-		            	<input type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
+									<textarea style="max-width: 200px" type="text" id="tags" placeholder="{{tagsText}}" ng-model="tags"/>
 		            	<button type="button" class="btn btn-primary btn-xs" ng-click="setTags()">Set</button>
 								</div>
 								<div class="input">

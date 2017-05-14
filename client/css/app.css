@@ -41,10 +41,17 @@
 
 #confirmationMessage{
 	text-align: center;
-	width: 30%;
-  margin-left: 35%;
+	width: 300px;
 }
 
 .bot {
-  width: 500px;
+  width: 400px;
+}
+
+.wrap {
+  word-wrap: break-word;
+}
+
+.current-bot {
+  max-width: 400px;
 }
