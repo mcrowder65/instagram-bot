@@ -70,7 +70,7 @@ function isPidAlive(pid, instagramUsername, res) {
 				} else if(arr.indexOf('python') === -1) {
           console.log('arr.indexOf(python) === -1')
 					res.json({running: false});
-				} else if(arr.indexOf('example.py') === -1) {
+				} else if(arr.indexOf('src/example.py') === -1) {
           console.log('arr.indexOf(example.py) === -1')
 					res.json({running: false});
 				} else {
