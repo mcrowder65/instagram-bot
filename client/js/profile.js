@@ -13,7 +13,6 @@ app.controller('profile', ['$scope', '$http', function ($scope, $http) {
       pid: $scope.pid
     };
     $scope.setById(user);
-    $scope.openToast('set');
   }
 
   $scope.setById = function(user) {
@@ -22,6 +21,7 @@ app.controller('profile', ['$scope', '$http', function ($scope, $http) {
         url: '/setById',
         data: user,
       }).then(function successCallback(response) {
+        alert('profile set');
       }, function errorCallback(response) {
           throw new Error("busted setbyid");
       });
