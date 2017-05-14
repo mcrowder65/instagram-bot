@@ -35,6 +35,16 @@
   width: 300px;
 }
 
-.profile-input {
+.input {
   margin-top: 10px;
+}
+
+#confirmationMessage{
+	text-align: center;
+	width: 30%;
+  margin-left: 35%;
+}
+
+.bot {
+  width: 500px;
 }
