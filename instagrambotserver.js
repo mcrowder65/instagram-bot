@@ -79,7 +79,7 @@ function isPidAlive(pid, instagramUsername, res) {
 
 }
 function getPid(instagramUsername, userId, res) {
-	var command = "python ps.py \"\'[p]ython example.py " + instagramUsername + "\'\"";
+	var command = "python ps.py \"\'[p]ython src/example.py " + instagramUsername + "\'\"";
 	exec(command,
 		function parsePid(error, stdout, stderr) {
 			if(!stdout) {
