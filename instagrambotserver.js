@@ -83,7 +83,7 @@ const getPid = (instagramUsername, userId, res) => {
     					res.json({status:"botoverload"});
     				} else {
     					if(output instanceof Array) {
-    						output = output[0];
+    						output = output[1];
     					}
     					output = output.split(' ');
     					output = cleanArray(output);
