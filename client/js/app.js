@@ -52,7 +52,7 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
     $scope.instagramUsernameText = instagramUsernameText;
     if(checkIfNotLoggedIn()) return;
     $scope.getById();
-      
+
   }
   $scope.getUser = function() {
     return {
@@ -97,11 +97,11 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
       data: {instagramUsername: $scope.instagramUsername, userId: localStorage.botToken},
     }).then(function successCallback(response) {
        if(response.data.status === 'botoverload') {
-         alert('For some reason, you have more than one bot running right now. ' 
-              + 'Please kill one bot and refresh this page. This message ' 
-              + 'will keep appearinng as long as there are two bots. So keep ' 
-              + 'killing until it\'s gone. Once you click stop, this will redirect you ' 
-              + 'to the create a bot screen. Be sure to refresh again to be sure there ' 
+         alert('For some reason, you have more than one bot running right now. '
+              + 'Please kill one bot and refresh this page. This message '
+              + 'will keep appearinng as long as there are two bots. So keep '
+              + 'killing until it\'s gone. Once you click stop, this will redirect you '
+              + 'to the create a bot screen. Be sure to refresh again to be sure there '
               + 'are no more bots running!!!');
          $scope.botRunning = true;
        }
@@ -112,6 +112,7 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
   $scope.isABotRunning = function() {
     var user = $scope.getUser();
     var pid = user.pid;
+    console.log('pid ', pid);
     if(!pid) {
       return;
     }
@@ -122,7 +123,7 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
     }).then(function successCallback(response) {
       $scope.assignPid();
       $scope.botRunning = response.data.running;
-      
+
     }, function errorCallback(response) {
       $scope.botRunning = false;
         throw new Error("isABotRunning busted");
@@ -185,14 +186,14 @@ function outline(id, color){
 function isEmpty(str) {
   return str === null || str === undefined || str === '' ? true : false;
 }
-function get(parameter) {  
+function get(parameter) {
   var url = window.location.href;
   var index = url.indexOf(parameter);
   if(index == -1)
     return null;
   index += parameter.length + 1; //if the word we're looking for is address, get a index
-                                 //then add address.length +1 to get start of value 
-   
+                                 //then add address.length +1 to get start of value
+
   var i = index;
   while(url[i] != '?' && url[i] != '&') {
     if(i > url.length)
@@ -200,14 +201,14 @@ function get(parameter) {
     i++;
   }
   return url.substring(index, i);
-} 
+}
 
 function removeGet(parameter, dateToSend) {
   var url = window.location.href;
   var index = url.indexOf(parameter);
   if(index == -1)
     return null;
-   
+
   var i = index + parameter.length + 1;
   while(url[i] != '?' && url[i] != '&') {
     if(i > url.length)
@@ -222,6 +223,6 @@ function removeGet(parameter, dateToSend) {
 
 
 function isValidNumber(num) {
-  return  num === undefined || num === null || 
+  return  num === undefined || num === null ||
           !Number.isInteger(num) || num < 0 ? false : true;
 }

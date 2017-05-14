@@ -46,6 +46,7 @@ function isPidAlive(pid, instagramUsername, res) {
 	var restOfPid = pid.substring(1);
 	var tempPid = "[" + pid[0] + "]" + restOfPid;
 	var command = "python ps.py " + "\'" + tempPid + "\'";
+  console.log('isPidAlive command ', command);
 	exec(command,
 		function puts(error, stdout, stderr) {
 			stdout = stdout.replace(/\r?\n|\r/g, "");
