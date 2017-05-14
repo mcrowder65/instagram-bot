@@ -100,7 +100,7 @@ const getPid = (instagramUsername, userId, res) => {
   	);
 
 }
-app.post('/startBot', function(req, res) {
+app.post('/startBot', (req, res) => {
 	var bot = req.body.bot;
 	var instagramUsername = bot.instagramUsername;
 	var hashTags = bot.tags;
@@ -119,12 +119,12 @@ app.post('/startBot', function(req, res) {
 	getPid(instagramUsername, userId, res);
 
 });
-app.post('/assignPid', function(req, res) {
+app.post('/assignPid', (req, res) => {
 	var instagramUsername = req.body.instagramUsername;
 	var userId = req.body.userId;
 	getPid(instagramUsername, userId, res);
 });
-app.post('/stopBot', function(req, res) {
+app.post('/stopBot', (req, res) => {
 	var instagramUsername = req.body.instagramUsername;
 	var pid = req.body.pid;
 	var userId = req.body.userId;
@@ -132,21 +132,21 @@ app.post('/stopBot', function(req, res) {
 	exec(command, puts);
 	getPid(instagramUsername, userId, res);
 });
-app.post('/isPidAlive', function(req, res) {
+app.post('/isPidAlive', (req, res) => {
 
 	var pid = req.body.pid;
 	var instagramUsername = req.body.instagramUsername;
 	isPidAlive(pid, instagramUsername, res);
 });
-app.post('/signup', function(req, res) {
+app.post('/signup', (req, res) => {
 	userDAO.signUp(req.body, res);
 });
-app.post('/login', function(req, res) {
+app.post('/login', (req, res) => {
 	userDAO.login(req.body, res);
 });
-app.post('/getById', function(req, res) {
+app.post('/getById', (req, res) => {
 	userDAO.getById(req.body.id, res);
 });
-app.post('/setById', function(req, res) {
+app.post('/setById', (req, res) => {
 	userDAO.setById(req.body, res);
 });
