@@ -66,6 +66,7 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
       pid: $scope.pid
     };
   }
+
   $scope.getById = function() {
     if(isEmpty(localStorage.botToken)) {
       window.location = '/#/login';
@@ -74,7 +75,7 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
     $http({
       method: 'POST',
       url: '/getById',
-      data: {id: localStorage.botToken},
+      data: {id: localStorage.botToken}
     }).then(function successCallback(response) {
       var user = response.data.data;
       $scope.instagramUsername = user.instagramUsername;
@@ -112,7 +113,6 @@ app.controller('app', ['$scope','$http', function ($scope, $http, simpleFactory)
   $scope.isABotRunning = function() {
     var user = $scope.getUser();
     var pid = user.pid;
-    console.log('pid ', pid);
     if(!pid) {
       return;
     }

@@ -145,7 +145,7 @@ app.post('/login', (req, res) => {
 	userDAO.login(req.body, res);
 });
 app.post('/getById', (req, res) => {
-	userDAO.getById(req.body.id, res);
+  userDAO.getById(req.body.id, res);
 });
 app.post('/setById', (req, res) => {
 	userDAO.setById(req.body, res);

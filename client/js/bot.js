@@ -15,7 +15,7 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 		$scope.showConfirmation = false;
 		$scope.currentBotText = currentBotText;
 		$scope.stopThisBotText = stopThisBotText;
-		
+
 	}
 	$scope.multiplyValueByHours = function(value) {
 		var temp = value * hoursInADay;
@@ -26,9 +26,9 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 			outline(instagramPasswordId, failureColor);
 			return;
 		}
-		
+
 		if(isString($scope.tags)) {
-			$scope.tags =$scope.tags.split(',');	
+			$scope.tags =$scope.tags.split(',');
 		}
 		$scope.showConfirmation = true;
 
@@ -53,7 +53,7 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 	    }, function errorCallback(response) {
 	        throw new Error("start bot busted");
 	    });
-		
+
 	}
 	$scope.stopThisBot = function() {
 		var user = $scope.getUser();
@@ -61,8 +61,8 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 	      method: 'POST',
 	      url: '/stopBot',
 	      data: {
-	      		 pid: user.pid, 
-	      		 id: localStorage.botToken, 
+	      		 pid: user.pid,
+	      		 id: localStorage.botToken,
 	      		 instagramUsername: user.instagramUsername},
 	    }).then(function successCallback(response) {
 	    	$scope.getById();
