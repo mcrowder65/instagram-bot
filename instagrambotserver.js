@@ -124,11 +124,12 @@ app.post('/assignPid', (req, res) => {
 	var userId = req.body.userId;
 	getPid(instagramUsername, userId, res);
 });
+
 app.post('/stopBot', (req, res) => {
 	var instagramUsername = req.body.instagramUsername;
 	var pid = req.body.pid;
 	var userId = req.body.userId;
-	var command = "python kill.py " + pid;
+	var command = "python kill.py " + pid + " " + instagramUsername;
 	exec(command, puts);
 	getPid(instagramUsername, userId, res);
 });
