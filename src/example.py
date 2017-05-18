@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime
+filename = 'logs.txt'
+target = open(filename, 'a')
+
+target.write('Started at ' + str(datetime.datetime.now()) + '\n');
+
+target.close()
+
 
 from instabot import InstaBot
 import sys
