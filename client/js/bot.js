@@ -55,6 +55,8 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 	    });
 		if(response.data.status === 'incorrect credentials') {
 			window.alert('wrong password');
+		} else {
+			$scope.getById();
 		}
 		document.getElementById('startButton').disabled = false;
 	}
