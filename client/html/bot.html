@@ -96,7 +96,7 @@
           <b>{{unfollowsPerHourText}}:</b> {{unfollowsPerDay}}
           <span ng-bind="multiplyValueByHours(unfollowsPerDay)"></span><br>
           <div>
-            <button type="button" class="btn btn-primary" ng-click="sendBotToServer()">
+            <button id="startButton" type="button" class="btn btn-primary" ng-click="sendBotToServer()">
               <div ng-bind="officialBotStartText"></div>
             </button>
             <button type="button" class="btn btn-danger" ng-click="showConfirmation = false">

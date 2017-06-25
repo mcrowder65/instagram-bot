@@ -35,6 +35,7 @@ target.close()
 #                unfollow_break_min=0,
 #                unfollow_break_max=0,
 #                log_mod=0)
+print 'started'
 bot = InstaBot(
     login=username,
     password=password,

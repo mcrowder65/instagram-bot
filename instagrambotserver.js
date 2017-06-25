@@ -95,6 +95,7 @@ const getPid = (instagramUsername, userId, res) => {
 
         } catch(error) {
           console.error(error);
+	  throw error;
         }
   		}
   	);
@@ -115,8 +116,30 @@ app.post('/startBot', (req, res) => {
 	var command = "python src/example.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
-	exec(command, puts);
-	getPid(instagramUsername, userId, res);
+	try {
+	console.log('command ', command);
+
+		exec(command, (error, stdout, stderr) => {
+		var getPid = true;
+				 if(error) {
+				getPid = false;
+
+                                console.log('error ', error);
+                                res.json({status: 'something went wrong.. ', error});
+                        }
+                        if(stdout.indexOf('Login error! Check your login data!') !== -1) {
+                        	getPid = false;	
+			res.json({status: 'incorrect credentials'});
+			}
+console.log('stdout ', stdout)
+console.log('stderr ', stderr);
+			if(getPid)
+                        	getPid(instagramUsername, userId, res);
+
+		});
+	} catch(error) {
+	console.log('error while starting ', error);
+	}
 
 });
 app.post('/assignPid', (req, res) => {

@@ -5,7 +5,7 @@ app.controller('profile', ['$scope', '$http', function ($scope, $http) {
     var user = {
       id: localStorage.botToken,
       instagramUsername: $scope.instagramUsername,
-      tags: $scope.tags,
+      tags: ($scope.tags || '').replace(' ', ''),
       likesPerDay: $scope.likesPerDay * hoursInADay,
       maxLikesForOneTag: $scope.maxLikesForOneTag,
       followsPerDay: $scope.followsPerDay * hoursInADay,

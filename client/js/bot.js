@@ -33,7 +33,8 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 		$scope.showConfirmation = true;
 
 	}
-	$scope.sendBotToServer = function() {
+	$scope.sendBotToServer = async function() {
+		document.getElementById('startButton').disabled = true;
 		var bot = {
 			instagramUsername: $scope.instagramUsername,
 			tags: $scope.tags,
@@ -44,16 +45,18 @@ app.controller('bot', ['$scope', '$http', function($scope, $http) {
 			instagramPassword: $scope.instagramPassword,
 			id: localStorage.botToken
 		};
-		$http({
+
+		const response = await $http({
 	      method: 'POST',
 	      url: '/startBot',
-	      data: {bot: bot},
-	    }).then(function successCallback(response) {
-	    	$scope.getById();
-	    }, function errorCallback(response) {
-	        throw new Error("start bot busted");
+	      data: {
+			  bot
+		  },
 	    });
-
+		if(response.data.status === 'incorrect credentials') {
+			window.alert('wrong password');
+		}
+		document.getElementById('startButton').disabled = false;
 	}
 	$scope.stopThisBot = function() {
 		var user = $scope.getUser();
