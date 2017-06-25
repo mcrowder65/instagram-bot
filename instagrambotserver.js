@@ -83,7 +83,7 @@ const getPid = (instagramUsername, userId, res) => {
     					res.json({status:"botoverload"});
     				} else {
     					if(output instanceof Array) {
-    						output = output[0];
+    						output = output[1];
     					}
     					output = output.split(' ');
     					output = cleanArray(output);
@@ -95,6 +95,7 @@ const getPid = (instagramUsername, userId, res) => {
 
         } catch(error) {
           console.error(error);
+	  throw error;
         }
   		}
   	);
@@ -115,8 +116,30 @@ app.post('/startBot', (req, res) => {
 	var command = "python src/example.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
-	exec(command, puts);
-	getPid(instagramUsername, userId, res);
+	try {
+
+		exec(command, (error, stdout, stderr) => {
+			try {
+				if(error) {
+
+					console.log('error ', error);
+					res.json({status: 'something went wrong.. ', error});
+				 }
+				 if(stdout.indexOf('Login error! Check your login data!') !== -1) {
+					console.log('stdout ', stdout);
+					res.json({status: 'incorrect credentials'});
+				 }
+			} catch(err) {
+				console.log('heh ', err);
+			}
+				 
+			
+
+		});
+		getPid(instagramUsername, userId, res);
+	} catch(error) {
+		console.log('error while starting ', error);
+	}
 
 });
 app.post('/assignPid', (req, res) => {
@@ -124,13 +147,20 @@ app.post('/assignPid', (req, res) => {
 	var userId = req.body.userId;
 	getPid(instagramUsername, userId, res);
 });
+
 app.post('/stopBot', (req, res) => {
-	var instagramUsername = req.body.instagramUsername;
-	var pid = req.body.pid;
-	var userId = req.body.userId;
-	var command = "python kill.py " + pid;
-	exec(command, puts);
-	getPid(instagramUsername, userId, res);
+	try {
+		var instagramUsername = req.body.instagramUsername;
+		var pid = req.body.pid;
+		var userId = req.body.userId;
+		var command = "python kill.py " + pid + " " + instagramUsername;
+		console.log('stop bot');
+		exec(command, puts);
+		getPid(instagramUsername, userId, res);
+	} catch(error) {
+		console.log('error while stopping ', error);
+	}
+	
 });
 app.post('/isPidAlive', (req, res) => {
 

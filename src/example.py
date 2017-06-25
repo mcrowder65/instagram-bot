@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime
+
+
 
 from instabot import InstaBot
 import sys
@@ -13,6 +16,13 @@ if maxLikesForOneTag == 0:
      maxLikesForOneTag = 100000
 followsPerDay = int(arr[6])
 unfollowsPerDay = int(arr[7])
+
+filename = 'logs.txt'
+target = open(filename, 'a')
+
+target.write(username + ' started at ' + str(datetime.datetime.now()) + '\n');
+
+target.close()
 #
 # bot = InstaBot(login=username, password=password,
 #                like_per_day=likesPerDay,
@@ -25,6 +35,7 @@ unfollowsPerDay = int(arr[7])
 #                unfollow_break_min=0,
 #                unfollow_break_max=0,
 #                log_mod=0)
+print 'started'
 bot = InstaBot(
     login=username,
     password=password,
