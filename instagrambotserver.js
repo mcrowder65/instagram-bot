@@ -117,28 +117,28 @@ app.post('/startBot', (req, res) => {
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
 	try {
-	console.log('command ', command);
 
 		exec(command, (error, stdout, stderr) => {
-		var getPid = true;
-				 if(error) {
-				getPid = false;
+			try {
+				if(error) {
 
-                                console.log('error ', error);
-                                res.json({status: 'something went wrong.. ', error});
-                        }
-                        if(stdout.indexOf('Login error! Check your login data!') !== -1) {
-                        	getPid = false;	
-			res.json({status: 'incorrect credentials'});
+					console.log('error ', error);
+					res.json({status: 'something went wrong.. ', error});
+				 }
+				 if(stdout.indexOf('Login error! Check your login data!') !== -1) {
+					console.log('stdout ', stdout);
+					res.json({status: 'incorrect credentials'});
+				 }
+			} catch(err) {
+				console.log('heh ', err);
 			}
-console.log('stdout ', stdout)
-console.log('stderr ', stderr);
-			if(getPid)
-                        	getPid(instagramUsername, userId, res);
+				 
+			
 
 		});
+		getPid(instagramUsername, userId, res);
 	} catch(error) {
-	console.log('error while starting ', error);
+		console.log('error while starting ', error);
 	}
 
 });
@@ -149,12 +149,18 @@ app.post('/assignPid', (req, res) => {
 });
 
 app.post('/stopBot', (req, res) => {
-	var instagramUsername = req.body.instagramUsername;
-	var pid = req.body.pid;
-	var userId = req.body.userId;
-	var command = "python kill.py " + pid + " " + instagramUsername;
-	exec(command, puts);
-	getPid(instagramUsername, userId, res);
+	try {
+		var instagramUsername = req.body.instagramUsername;
+		var pid = req.body.pid;
+		var userId = req.body.userId;
+		var command = "python kill.py " + pid + " " + instagramUsername;
+		console.log('stop bot');
+		exec(command, puts);
+		getPid(instagramUsername, userId, res);
+	} catch(error) {
+		console.log('error while stopping ', error);
+	}
+	
 });
 app.post('/isPidAlive', (req, res) => {
 
