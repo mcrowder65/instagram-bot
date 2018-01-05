@@ -327,8 +327,9 @@ class InstaBot:
                 url_tag = self.url_tag % (tag)
                 try:
                     r = self.s.get(url_tag)
+                    print r
                     all_data = json.loads(r.text)
-
+                    print all_data
                     self.media_by_tag = list(all_data['tag']['media']['nodes'])
                 except:
                     self.media_by_tag = []

@@ -1,0 +1,923 @@
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1136, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 453, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 409, in _read_status
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 480, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 233, in recv
+    data = self.connection.recv(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1515, in recv
+    result = _lib.SSL_read(self._ssl, buf, bufsiz)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt
+ERROR:root:get_media_id_by_tag
+Traceback (most recent call last):
+  File "/root/instagram-bot/instabot.pyV2/src/instabot.py", line 353, in get_media_id_by_tag
+    r = self.s.get(url_tag)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 501, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 488, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 609, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/adapters.py", line 423, in send
+    timeout=timeout
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 594, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 350, in _make_request
+    self._validate_conn(conn)
+  File "/usr/lib/python2.7/dist-packages/urllib3/connectionpool.py", line 837, in _validate_conn
+    conn.connect()
+  File "/usr/lib/python2.7/dist-packages/urllib3/connection.py", line 323, in connect
+    ssl_context=context)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util/ssl_.py", line 324, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python2.7/dist-packages/urllib3/contrib/pyopenssl.py", line 417, in wrap_socket
+    cnx.do_handshake()
+  File "/usr/lib/python2.7/dist-packages/OpenSSL/SSL.py", line 1637, in do_handshake
+    result = _lib.SSL_do_handshake(self._ssl)
+KeyboardInterrupt

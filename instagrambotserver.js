@@ -56,7 +56,7 @@ const isPidAlive = (pid, instagramUsername, res) => {
 					res.json({running: false});
 				} else if(arr.indexOf('python') === -1) {
 					res.json({running: false});
-				} else if(arr.indexOf('src/example.py') === -1) {
+				} else if(arr.indexOf('instabot.pyV2/new-bot.py') === -1) {
 					res.json({running: false});
 				} else {
 					res.json({running:true});
@@ -68,7 +68,7 @@ const isPidAlive = (pid, instagramUsername, res) => {
 
 }
 const getPid = (instagramUsername, userId, res) => {
-	var command = "python ps.py \"\'[p]ython src/example.py " + instagramUsername + "\'\"";
+	var command = "python ps.py \"\'[p]ython instabot.pyV2/new-bot.py " + instagramUsername + "\'\"";
     exec(command,
   		parsePid = (error, stdout, stderr) => {
         try {
@@ -112,7 +112,7 @@ app.post('/startBot', (req, res) => {
 	var userId = bot.id;
 
 
-	var command = "python src/example.py " + instagramUsername + " " + instagramPassword + " "
+	var command = "python instabot.pyV2/new-bot.py " + instagramUsername + " " + instagramPassword + " "
 				  + hashTags + " " + likesPerDay + " " + maxLikesForOneTag + " " + followsPerDay
 				  + " " + unfollowsPerDay;
 	exec(command, puts);
